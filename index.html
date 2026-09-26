@@ -1,0 +1,3294 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện nghe N3 – Nghe hiểu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F1E6; --bg-raised:#FFFEFA; --bg-sunken:#EEE6D3;
+    --ink:#2A2318; --ink-muted:#766C56; --ink-faint:#9C9276;
+    --line:#DDD2B4; --line-soft:#E9E0C9;
+    --indigo:#1F4E79; --indigo-strong:#153A5C; --indigo-soft:#E3ECF3; --indigo-soft-line:#C7D9E8;
+    --shu:#AE3527; --shu-soft:#F5E3DF; --shu-soft-line:#E7C3BA;
+    --good:#3E7A52; --good-soft:#E2EEE3; --good-soft-line:#C1DCC7;
+    --shadow: 0 1px 2px rgba(42,35,24,0.06), 0 6px 20px -8px rgba(42,35,24,0.18);
+    --shadow-lg: 0 2px 4px rgba(42,35,24,0.08), 0 16px 34px -10px rgba(42,35,24,0.30);
+    --radius: 10px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#191A1D; --bg-raised:#232429; --bg-sunken:#1F2024;
+      --ink:#EDE7D8; --ink-muted:#A79E89; --ink-faint:#7C755F;
+      --line:#3A3A3E; --line-soft:#2C2D31;
+      --indigo:#89B4DE; --indigo-strong:#A9CCEF; --indigo-soft:rgba(137,180,222,0.14); --indigo-soft-line:rgba(137,180,222,0.32);
+      --shu:#E28A7C; --shu-soft:rgba(226,138,124,0.14); --shu-soft-line:rgba(226,138,124,0.34);
+      --good:#7BC496; --good-soft:rgba(123,196,150,0.14); --good-soft-line:rgba(123,196,150,0.34);
+      color-scheme: dark;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .jp{ font-family:"Noto Sans JP","Be Vietnam Pro",sans-serif; }
+  h1,.disp{ font-family:"Shippori Mincho",serif; font-weight:700; text-wrap:balance; }
+  .mono{ font-family:"JetBrains Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums; }
+  a{ color:var(--indigo); }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:28px 20px 80px; }
+
+  .page-head{ margin-bottom:14px; }
+  .page-head .tag{
+    display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700;
+    color:var(--indigo-strong); background:var(--indigo-soft); border:1px solid var(--indigo-soft-line);
+    padding:3px 9px; border-radius:20px; margin-bottom:10px;
+  }
+  .page-head h1{ font-size:24px; margin:0 0 6px; }
+  .page-head p{ margin:0; color:var(--ink-muted); font-size:13.5px; }
+
+  .lesson-nav{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+  .lesson-nav button{
+    display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:34px; padding:0 8px; border-radius:8px;
+    border:1px solid var(--line); background:var(--bg-raised); color:var(--ink-muted); cursor:pointer;
+    font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; position:relative;
+  }
+  .lesson-nav button:hover{ border-color:var(--indigo); color:var(--indigo); }
+  .lesson-nav button.current{ background:var(--indigo); border-color:var(--indigo); color:#fff; }
+  .lesson-nav button.done::after{
+    content:""; position:absolute; top:-3px; right:-3px; width:8px; height:8px; border-radius:50%; background:var(--good);
+    border:1.5px solid var(--bg-raised);
+  }
+
+  .quiz-head{
+    display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:18px; padding:13px 18px;
+    background:var(--bg-raised); border:1px solid var(--line-soft); border-top:3px solid var(--indigo); border-radius:var(--radius);
+    box-shadow:var(--shadow-lg); position:sticky; top:0; z-index:3;
+  }
+  .quiz-head .progress-wrap{ flex:1 1 160px; }
+  .quiz-head .progress-label{ font-size:11px; color:var(--ink-muted); margin-bottom:4px; display:flex; justify-content:space-between; }
+  .progress-track{ height:6px; border-radius:6px; background:var(--bg-sunken); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--indigo); border-radius:6px; transition:width .2s; width:0%; }
+  .btn{
+    border:1px solid var(--line); background:var(--bg-raised); color:var(--ink); font:inherit; font-size:12.5px; font-weight:600;
+    padding:8px 13px; border-radius:8px; cursor:pointer; white-space:nowrap;
+  }
+  .btn:hover{ border-color:var(--ink-faint); }
+  .btn.primary{ background:var(--indigo); border-color:var(--indigo); color:#fff; }
+  .btn.primary:hover{ background:var(--indigo-strong); }
+  .btn:disabled{ opacity:.45; cursor:not-allowed; }
+  .btn.sm{ padding:5px 10px; font-size:11.5px; }
+
+  .score-banner{
+    display:none; margin:0 0 18px; padding:16px 20px; border-radius:var(--radius); border:1px solid var(--good-soft-line);
+    background:var(--good-soft); align-items:center; gap:16px; flex-wrap:wrap;
+  }
+  .score-banner.show{ display:flex; }
+  .score-banner .big{ font-family:"Shippori Mincho",serif; font-size:30px; font-weight:800; color:var(--good); }
+  .score-banner .big small{ font-size:14px; font-weight:600; color:var(--ink-muted); font-family:"Be Vietnam Pro",sans-serif; }
+
+  .qcard{
+    background:var(--bg-raised); border:1px solid var(--line-soft); border-radius:var(--radius); padding:16px 18px 18px;
+    margin-bottom:14px; transition:border-color .15s, background .15s;
+  }
+  .qcard.correct{ border-color:var(--good-soft-line); background:var(--good-soft); }
+  .qcard.wrong{ border-color:var(--shu-soft-line); background:var(--shu-soft); }
+
+  .qcard .qhead{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .qcard .qnum{
+    flex:none; width:26px; height:26px; border-radius:7px; background:var(--indigo-soft); color:var(--indigo-strong);
+    display:flex; align-items:center; justify-content:center; font-family:"JetBrains Mono",monospace; font-weight:700; font-size:12px;
+  }
+  .qcard .qtitle{ font-weight:700; font-size:13.5px; color:var(--ink-muted); }
+
+  .qcard audio{ width:100%; margin-bottom:12px; }
+
+  .qcard .qtext{ font-size:15.5px; margin-bottom:12px; }
+  .qcard .qtext .jp{ font-weight:600; }
+  .qcard .qimg{ max-width:100%; border-radius:8px; border:1px solid var(--line-soft); margin-bottom:12px; display:block; }
+
+  .options{ display:flex; flex-direction:column; gap:8px; }
+  .opt{
+    display:flex; align-items:flex-start; gap:9px; border:1px solid var(--line); background:var(--bg-raised);
+    border-radius:8px; padding:9px 11px; cursor:pointer; font-size:14px; text-align:left;
+  }
+  .opt:hover{ border-color:var(--indigo); }
+  .opt .bub{
+    flex:none; width:22px; height:22px; margin-top:1px; border-radius:50%; border:1.5px solid var(--ink-faint); color:var(--ink-faint);
+    display:flex; align-items:center; justify-content:center; font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700;
+  }
+  .opt .jp{ flex:1; }
+  .opt.sel{ border-color:var(--indigo); background:var(--indigo-soft); }
+  .opt.sel .bub{ background:var(--indigo); border-color:var(--indigo); color:#fff; }
+  .qcard.graded .opt{ cursor:default; }
+  .qcard.graded .opt.is-correct{ border-color:var(--good); background:var(--good-soft); }
+  .qcard.graded .opt.is-correct .bub{ background:var(--good); border-color:var(--good); color:#fff; }
+  .qcard.graded .opt.sel.is-wrong{ border-color:var(--shu); background:var(--shu-soft); }
+  .qcard.graded .opt.sel.is-wrong .bub{ background:var(--shu); border-color:var(--shu); color:#fff; }
+
+  .qcard .stamp{ margin-top:10px; font-size:12px; font-weight:700; display:none; align-items:center; gap:6px; }
+  .qcard.graded .stamp{ display:flex; }
+  .qcard.correct .stamp{ color:var(--good); }
+  .qcard.wrong .stamp{ color:var(--shu); }
+
+  .script-box{
+    display:none; background:var(--bg-sunken); border:1px solid var(--line-soft); border-radius:8px;
+    padding:10px 12px; font-size:13.5px; line-height:1.7; margin-top:12px;
+  }
+  .script-box.show{ display:block; }
+  .script-box p{ margin:0 0 6px; }
+  .script-box p:last-child{ margin-bottom:0; }
+
+  :focus-visible{ outline:2px solid var(--indigo); outline-offset:2px; }
+
+  /* ---------- Gate (dùng chung tài khoản với trang chính) ---------- */
+  #view-gate{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:32px 18px; }
+  .gate-card{
+    width:100%; max-width:400px; background:var(--bg-raised); border:1px solid var(--line-soft);
+    border-radius:14px; box-shadow:var(--shadow); padding:28px 26px 24px;
+  }
+  .gate-tag{
+    display:inline-flex; align-items:center; gap:5px; font-family:"Shippori Mincho",serif; font-size:12px; font-weight:700;
+    color:var(--indigo-strong); background:var(--indigo-soft); border:1px solid var(--indigo-soft-line);
+    padding:3px 9px; border-radius:20px; margin-bottom:14px;
+  }
+  .gate-card h1{ font-size:21px; margin:0 0 6px; }
+  .gate-card p.desc{ margin:0 0 20px; font-size:13px; color:var(--ink-muted); }
+  .field{ margin-bottom:14px; }
+  .field label{ display:block; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); margin-bottom:5px; }
+  .field input{
+    width:100%; border:1px solid var(--line); background:var(--bg); color:var(--ink); font:inherit; font-size:14px;
+    padding:10px 12px; border-radius:8px; outline:none; box-sizing:border-box;
+  }
+  .field input:focus{ border-color:var(--indigo); }
+  .gate-status{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ink-muted); min-height:20px; margin-bottom:14px; }
+  .status-dot{ width:7px; height:7px; border-radius:50%; background:var(--ink-faint); flex:none; }
+  .status-dot.pending{ background:var(--indigo); }
+  .status-dot.approved{ background:var(--good); }
+  .status-dot.rejected{ background:var(--shu); }
+  .gate-actions{ display:flex; gap:8px; }
+  .gate-actions .btn{ flex:1; }
+  .gate-err{ font-size:12px; color:var(--shu); margin:-6px 0 12px; display:none; }
+  .gate-err.show{ display:block; }
+
+  .top-account{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  .top-account .who{ font-size:11px; color:var(--ink-faint); font-family:"JetBrains Mono",monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .top-account .links{ display:flex; gap:12px; align-items:center; }
+  .top-account a{ font-size:11.5px; }
+  .top-account button{ font-size:11px; color:var(--ink-muted); background:none; border:none; cursor:pointer; text-decoration:underline; text-underline-offset:2px; font:inherit; flex:none; }
+  .top-account button:hover{ color:var(--shu); }
+
+  /* ---------- Admin ---------- */
+  .card{
+    background:var(--bg-raised); border:1px solid var(--line-soft); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:18px 20px;
+  }
+  #view-admin{ max-width:900px; margin:0 auto; padding:32px 24px 60px; }
+  .admin-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .admin-head h1{ font-size:22px; margin:0; }
+  table.reqs{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.reqs th{ text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); padding:8px 12px; }
+  table.reqs td{ padding:10px 12px; border-top:1px solid var(--line-soft); vertical-align:middle; }
+  table.reqs td.em{ font-family:"JetBrains Mono",monospace; font-size:12.5px; }
+  .badge{ display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; white-space:nowrap; }
+  .badge.pending{ background:var(--indigo-soft); color:var(--indigo-strong); border:1px solid var(--indigo-soft-line); }
+  .badge.approved{ background:var(--good-soft); color:var(--good); border:1px solid var(--good-soft-line); }
+  .badge.rejected{ background:var(--shu-soft); color:var(--shu); border:1px solid var(--shu-soft-line); }
+  .row-actions{ display:flex; gap:6px; flex-wrap:wrap; }
+  .row-actions .btn{ padding:5px 10px; font-size:11.5px; }
+  .admin-add{ display:flex; gap:8px; margin-top:18px; flex-wrap:wrap; }
+  .admin-add input{ flex:1 1 220px; border:1px solid var(--line); background:var(--bg-raised); color:var(--ink); font:inherit; font-size:13px; padding:8px 11px; border-radius:8px; box-sizing:border-box; }
+  .empty-note{ color:var(--ink-faint); font-size:13px; padding:20px 0; }
+</style>
+</head>
+<body>
+<div id="view-gate" style="display:none;">
+  <div class="gate-card">
+    <span class="gate-tag jp">申込書</span>
+    <h1>Truy cập trang luyện nghe</h1>
+    <p class="desc">Dùng chung email đã được duyệt ở trang chính. Nhập email của bạn, bấm "Gửi yêu cầu" nếu chưa từng đăng ký; sau khi admin duyệt, bấm "Vào trang".</p>
+
+    <div class="field">
+      <label for="gate-email">Email</label>
+      <input type="email" id="gate-email" placeholder="ban@gmail.com" autocomplete="email">
+    </div>
+    <div class="field" id="gate-pass-field" style="display:none;">
+      <label for="gate-pass">Mật khẩu quản trị</label>
+      <input type="password" id="gate-pass" placeholder="••••••••" autocomplete="current-password">
+    </div>
+
+    <div class="gate-err" id="gate-err"></div>
+    <div class="gate-status" id="gate-status"><span class="status-dot" id="gate-dot"></span><span id="gate-status-text">Đang kiểm tra phiên đã lưu…</span></div>
+
+    <div class="gate-actions" id="gate-actions-user">
+      <button class="btn" id="btn-request" type="button">Gửi yêu cầu</button>
+      <button class="btn primary" id="btn-enter" type="button" disabled>Vào trang</button>
+    </div>
+    <div class="gate-actions" id="gate-actions-admin" style="display:none;">
+      <button class="btn primary" id="btn-admin-login" type="button" style="flex:1;">Đăng nhập quản trị</button>
+    </div>
+  </div>
+</div>
+
+<div id="view-admin" style="display:none;">
+  <div class="admin-head">
+    <div>
+      <div class="gate-tag jp" style="margin-bottom:8px;">管理</div>
+      <h1>Duyệt truy cập</h1>
+    </div>
+    <div class="row-actions">
+      <button class="btn ghost" id="admin-logout" type="button">Đăng xuất</button>
+    </div>
+  </div>
+
+  <div class="card" style="padding:6px 0 12px;">
+    <div style="overflow-x:auto;">
+    <table class="reqs">
+      <thead><tr><th>Email</th><th>Gửi lúc</th><th>Trạng thái</th><th>Hành động</th></tr></thead>
+      <tbody id="admin-tbody"></tbody>
+    </table>
+    </div>
+    <div class="empty-note" id="admin-empty" style="display:none;">Chưa có yêu cầu nào.</div>
+  </div>
+
+  <div class="admin-add">
+    <input type="email" id="admin-add-email" placeholder="Thêm email và duyệt luôn…">
+    <button class="btn primary" id="admin-add-btn" type="button">Thêm &amp; duyệt</button>
+  </div>
+</div>
+
+<div id="view-app" style="display:none;">
+<div class="wrap">
+  <div class="top-account">
+    <span class="who" id="top-who"></span>
+    <div class="links">
+      <button id="top-logout" type="button">Đăng xuất</button>
+    </div>
+  </div>
+
+  <div class="page-head">
+    <span class="tag">聴解 JLPT N3</span>
+    <h1>Luyện nghe N3 – Nghe hiểu</h1>
+    <p>Chọn bài bên dưới, nghe đoạn hội thoại rồi chọn đáp án mô tả đúng nội dung.</p>
+  </div>
+
+  <div class="lesson-nav" id="lessonNav"></div>
+
+  <div class="quiz-head">
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressLabel">Bài 1</span><span id="progressText">0/5 câu</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <button class="btn primary" id="submitBtn">Nộp bài</button>
+    <button class="btn" id="resetBtn">Làm lại</button>
+  </div>
+
+  <div class="score-banner" id="scoreBanner">
+    <div class="big" id="scoreBig">0<small>/5</small></div>
+    <div id="scoreNote" style="font-size:13px;color:var(--ink-muted);"></div>
+  </div>
+
+  <div id="quizRoot"></div>
+</div>
+</div>
+
+<script>
+/* =================== ACCESS CONTROL (dùng chung Google Sheet backend với index.html) =================== */
+const ADMIN_EMAIL = "admin@gmail.com";
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbzy8y_pN23z1sn4anL7S9_AK3ZNCQ4VoISz4bSWWdO8251wX1Z0sOQJmifjXetlhxXY/exec";
+const SESSION_KEY = "n3_session";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let adminPass = null; // giữ trong bộ nhớ phiên làm việc, không lưu localStorage
+
+function loadSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch(e){ return null; } }
+function saveSession(s){ if(s) localStorage.setItem(SESSION_KEY, JSON.stringify(s)); else localStorage.removeItem(SESSION_KEY); }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function fmtDate(ts){ return ts ? new Date(ts).toLocaleString("vi-VN") : "—"; }
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+async function apiCallOnce(params){
+  const qs = new URLSearchParams(params).toString();
+  const res = await fetch(SHEET_API_URL + (SHEET_API_URL.includes("?") ? "&" : "?") + qs);
+  if(!res.ok) throw new Error("http-" + res.status);
+  const data = await res.json();
+  if(!data.ok) throw new Error(data.error || "api-error");
+  return data;
+}
+async function apiCall(params){
+  const NO_RETRY = new Set(["bad pass", "missing email", "unknown action"]);
+  const delays = [0, 500, 1200];
+  let lastErr;
+  for(let i = 0; i < delays.length; i++){
+    if(delays[i]) await sleep(delays[i]);
+    try { return await apiCallOnce(params); }
+    catch(err){ lastErr = err; if(NO_RETRY.has(err.message)) throw err; }
+  }
+  throw lastErr;
+}
+
+function showView(name){
+  ["gate","admin"].forEach(n => { document.getElementById("view-" + n).style.display = (n === name) ? "" : "none"; });
+  document.getElementById("view-app").style.display = name === "app" ? "" : "none";
+}
+function setGateStatus(kind, text){
+  document.getElementById("gate-dot").className = "status-dot" + (kind ? " " + kind : "");
+  document.getElementById("gate-status-text").textContent = text;
+}
+function gateError(msg){
+  const el = document.getElementById("gate-err");
+  el.textContent = msg;
+  el.classList.toggle("show", !!msg);
+}
+function applyStatus(status){
+  const btnEnter = document.getElementById("btn-enter");
+  const btnRequest = document.getElementById("btn-request");
+  if(status === "empty"){
+    setGateStatus(null, "Nhập email để bắt đầu.");
+    btnEnter.disabled = true; btnRequest.disabled = false; btnRequest.textContent = "Gửi yêu cầu";
+  } else if(status === "invalid"){
+    setGateStatus(null, "Email không hợp lệ.");
+    btnEnter.disabled = true; btnRequest.disabled = false; btnRequest.textContent = "Gửi yêu cầu";
+  } else if(status === "none"){
+    setGateStatus(null, "Chưa có yêu cầu nào cho email này.");
+    btnEnter.disabled = true; btnRequest.disabled = false; btnRequest.textContent = "Gửi yêu cầu";
+  } else if(status === "pending"){
+    setGateStatus("pending", "Yêu cầu đang chờ admin duyệt.");
+    btnEnter.disabled = true; btnRequest.disabled = true; btnRequest.textContent = "Đã gửi yêu cầu";
+  } else if(status === "approved"){
+    setGateStatus("approved", "Đã được duyệt — có thể vào trang.");
+    btnEnter.disabled = false; btnRequest.disabled = true; btnRequest.textContent = "Đã gửi yêu cầu";
+  } else if(status === "rejected"){
+    setGateStatus("rejected", "Yêu cầu đã bị từ chối. Có thể gửi lại.");
+    btnEnter.disabled = true; btnRequest.disabled = false; btnRequest.textContent = "Gửi lại yêu cầu";
+  } else {
+    setGateStatus("rejected", "Không kết nối được máy chủ.");
+    btnEnter.disabled = true; btnRequest.disabled = false; btnRequest.textContent = "Gửi yêu cầu";
+  }
+}
+function debounce(fn, ms){ let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; }
+let statusReqToken = 0;
+async function onEmailChanged(e){
+  const email = e.target.value.trim();
+  const isAdmin = email.toLowerCase() === ADMIN_EMAIL;
+  document.getElementById("gate-pass-field").style.display = isAdmin ? "" : "none";
+  document.getElementById("gate-actions-user").style.display = isAdmin ? "none" : "flex";
+  document.getElementById("gate-actions-admin").style.display = isAdmin ? "flex" : "none";
+  gateError("");
+  if(isAdmin){ setGateStatus(null, "Đăng nhập bằng tài khoản quản trị."); return; }
+  if(!email){ applyStatus("empty"); return; }
+  if(!EMAIL_RE.test(email)){ applyStatus("invalid"); return; }
+  const token = ++statusReqToken;
+  setGateStatus(null, "Đang kiểm tra…");
+  try {
+    const data = await apiCall({ action:"status", email });
+    if(token !== statusReqToken) return;
+    applyStatus(data.status);
+  } catch(err){
+    if(token !== statusReqToken) return;
+    applyStatus("error");
+  }
+}
+function enterApp(email){
+  showView("app");
+  document.getElementById("top-who").textContent = email;
+}
+function enterAdmin(items){ showView("admin"); renderAdminTable(items); }
+function logoutAccess(){
+  adminPass = null;
+  saveSession(null);
+  document.getElementById("gate-pass").value = "";
+  document.getElementById("gate-email").value = "";
+  showView("gate");
+  applyStatus("empty");
+}
+document.getElementById("gate-email").addEventListener("input", debounce(onEmailChanged, 400));
+document.getElementById("gate-email").addEventListener("keydown", e => {
+  if(e.key !== "Enter") return;
+  const isAdmin = e.target.value.trim().toLowerCase() === ADMIN_EMAIL;
+  if(isAdmin) document.getElementById("gate-pass").focus();
+  else document.getElementById("btn-request").click();
+});
+document.getElementById("gate-pass").addEventListener("keydown", e => { if(e.key === "Enter") document.getElementById("btn-admin-login").click(); });
+document.getElementById("btn-request").addEventListener("click", async () => {
+  const email = document.getElementById("gate-email").value.trim();
+  if(!EMAIL_RE.test(email)){ gateError("Email không hợp lệ."); return; }
+  const btn = document.getElementById("btn-request");
+  gateError(""); btn.disabled = true; btn.textContent = "Đang gửi…";
+  try {
+    const data = await apiCall({ action:"request", email });
+    saveSession({ email: email.toLowerCase() });
+    applyStatus(data.status);
+  } catch(err){
+    gateError("Không gửi được yêu cầu. Kiểm tra kết nối mạng.");
+    btn.disabled = false; btn.textContent = "Gửi yêu cầu";
+  }
+});
+document.getElementById("btn-enter").addEventListener("click", async () => {
+  const email = document.getElementById("gate-email").value.trim();
+  const btn = document.getElementById("btn-enter");
+  btn.disabled = true;
+  try {
+    const data = await apiCall({ action:"status", email });
+    if(data.status === "approved"){ saveSession({ email: email.toLowerCase() }); enterApp(email); }
+    else { applyStatus(data.status); btn.disabled = false; }
+  } catch(err){ gateError("Không kết nối được máy chủ."); btn.disabled = false; }
+});
+document.getElementById("btn-admin-login").addEventListener("click", async () => {
+  const pass = document.getElementById("gate-pass").value;
+  const btn = document.getElementById("btn-admin-login");
+  gateError(""); btn.disabled = true; btn.textContent = "Đang đăng nhập…";
+  try {
+    const data = await apiCall({ action:"list", pass });
+    adminPass = pass;
+    enterAdmin(data.items);
+  } catch(err){
+    gateError("Sai mật khẩu hoặc không kết nối được.");
+  } finally {
+    btn.disabled = false; btn.textContent = "Đăng nhập quản trị";
+  }
+});
+document.getElementById("top-logout").addEventListener("click", logoutAccess);
+document.getElementById("admin-logout").addEventListener("click", logoutAccess);
+
+async function refreshAdmin(){
+  try {
+    const data = await apiCall({ action:"list", pass: adminPass });
+    renderAdminTable(data.items);
+  } catch(err){
+    alert("Mất phiên quản trị hoặc mất kết nối. Vui lòng đăng nhập lại.");
+    logoutAccess();
+  }
+}
+
+function renderAdminTable(items){
+  const list = (items || []).slice().sort((a,b) => (b.ts||0) - (a.ts||0));
+  const tbody = document.getElementById("admin-tbody");
+  document.getElementById("admin-empty").style.display = list.length ? "none" : "block";
+  const labels = { pending:"Chờ duyệt", approved:"Đã duyệt", rejected:"Từ chối" };
+  tbody.innerHTML = list.map(r => {
+    const badge = `<span class="badge ${r.status}">${labels[r.status] || r.status}</span>`;
+    let actions = "";
+    if(r.status !== "approved") actions += `<button class="btn primary" data-act="approve" data-email="${escapeHtml(r.email)}" type="button">Duyệt</button>`;
+    if(r.status !== "rejected") actions += `<button class="btn" data-act="reject" data-email="${escapeHtml(r.email)}" type="button">Từ chối</button>`;
+    actions += `<button class="btn ghost" data-act="delete" data-email="${escapeHtml(r.email)}" type="button">Xoá</button>`;
+    return `<tr><td class="em">${escapeHtml(r.email)}</td><td>${fmtDate(r.ts)}</td><td>${badge}</td><td><div class="row-actions">${actions}</div></td></tr>`;
+  }).join("");
+  tbody.querySelectorAll("button[data-act]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const email = btn.dataset.email, act = btn.dataset.act;
+      btn.disabled = true;
+      try {
+        if(act === "approve") await apiCall({ action:"approve", email, pass: adminPass });
+        else if(act === "reject") await apiCall({ action:"reject", email, pass: adminPass });
+        else if(act === "delete") await apiCall({ action:"delete", email, pass: adminPass });
+        await refreshAdmin();
+      } catch(err){ alert("Thao tác thất bại. Kiểm tra kết nối."); btn.disabled = false; }
+    });
+  });
+}
+document.getElementById("admin-add-btn").addEventListener("click", async () => {
+  const input = document.getElementById("admin-add-email");
+  const email = input.value.trim();
+  if(!EMAIL_RE.test(email)) return;
+  const btn = document.getElementById("admin-add-btn");
+  btn.disabled = true; input.disabled = true;
+  try {
+    await apiCall({ action:"request", email });
+    await apiCall({ action:"approve", email, pass: adminPass });
+    input.value = "";
+    await refreshAdmin();
+  } catch(err){ alert("Không thêm được. Kiểm tra kết nối."); }
+  finally { btn.disabled = false; input.disabled = false; }
+});
+
+async function initAccess(){
+  showView("gate");
+  const session = loadSession();
+  if(session && session.email){
+    document.getElementById("gate-email").value = session.email;
+    setGateStatus(null, "Đang kiểm tra phiên đã lưu…");
+    try {
+      const data = await apiCall({ action:"status", email: session.email });
+      if(data.status === "approved"){ enterApp(session.email); return; }
+      applyStatus(data.status);
+    } catch(err){ applyStatus("error"); }
+  } else {
+    applyStatus("empty");
+  }
+}
+initAccess();
+
+/* =================== QUIZ =================== */
+const LESSONS = {
+  "1": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/1.mp3",
+      "question": "学生が駅員に、よびとめられました。それは、どうしてですか？駅員は、学生になにをさせましたか？",
+      "options": [
+        "学生が、定期をちゃんと見せなかったので、駅員は学生証をあずかることにしました",
+        "学生が学生証を、見せなかったので、駅員は、学校にしらせることにしました",
+        "学生は、どこかで切符をなくしたのにお金をはらわないので、駅員は 学校にしらせることにしました",
+        "学生は定期が切れているのに、お金をはらわないので、駅員は学生証をあずかることにしました"
+      ],
+      "answer": 3,
+      "script": [
+        "もしもし、お客さん",
+        "え、私ですか",
+        "ちょっと、あなた定期が、切れていますよ",
+        "あ、そうですか",
+        "ちゃんとお金を、はらってもらいますよ",
+        "ごめんなさい。私、今お金もってないんです",
+        "困るな。じゃ、学生証を見せてごらん",
+        "はい",
+        "お金をもってくるまで、これあずかっとくよ。",
+        "すみませんけど、お願いがあるんですが。",
+        "なんだね。",
+        "学校にしらせるのだけは、やめてくれませんか？",
+        "わかった、わかった。だまっとくよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/2.mp3",
+      "question": "男の人は、何をたのみましたか？男の人は、ちゃんとおりることができましたか？",
+      "options": [
+        "男の人が荷物を、わすれそうになったので、女の人がおしえてあげました",
+        "男の人は、新幹線の中で寝ていたので、のりすごしてしまいました",
+        "男の人は次の駅でおりたが、新幹線の中に自分のにもつをわすれてしまいました",
+        "男の人は、京都でのりこしたので、つぎの駅で新幹線を、おりることにしました"
+      ],
+      "answer": 2,
+      "script": [
+        "ちょっと、すいません。ここは、どのあたりですか",
+        "今、京都をすぎたところですよ",
+        "ぼくは、次の駅でおりなきゃならないんですが、近づいたらおしえてくれませんか",
+        "もしもし、もうすぐ着きますよ",
+        "うーん",
+        "起きてください。のりこしちゃいますよ",
+        "あ、大変だ。いそがなきゃ。どうも、どうも",
+        "ああ、 荷物をわすれて行っちゃった"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/3.mp3",
+      "question": "夜おそく、女子高校生が交番にいきました。何をたのみましたか？そこから、彼女の家までいくら、くらいかかりますか？",
+      "options": [
+        "女子高校生は終電電車にのりおくれたので、タクシーに乗ろうとおもいましたが、お金がぜんぜんないので、１０００円かしてもらいました",
+        "女子高校生は終電電車にのりおくれたので、タクシーにのろうとおもいましたが、お金がたりないので、１０００円かしてもらいました",
+        "女子高校生は終電電車にのりおくれたので、タクシーにのろうとおもいましたが、お金が２０００円たりません",
+        "女子高校生は終電電車にのりおくれたので、タクシーにのろうとおもいましたが、お金がないので、1０００円もらいました"
+      ],
+      "answer": 1,
+      "script": [
+        "すみません、おまわりさん。",
+        "しゅうでんしゃに、のりおくれちゃったんです",
+        "はい、それで？",
+        "タクシー代かしてほしいんですけど？",
+        "いくら？",
+        "１０００円で、いいんです。財布に、１０００円のこっていますから",
+        "ちゃんと、かえしてくれるのかい？",
+        "明日の朝、１番にもってきますから",
+        "しょうがないな、ちょっとまって。",
+        "はい。",
+        "じゃ、１０００円かすからね。",
+        "これからは、よあそびしちゃいけないよ。",
+        "早く、家にかえらなくちゃいけないよ。ご両親に心配かけるんじゃないよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/4.mp3",
+      "question": "男の人はガールフレンドをダンスに、誘いました。女の人は行くことにしましたか？また、ダンスの服はかりることにしましたか？買うことにしましたか？",
+      "options": [
+        "男の人が、ダンスパーティーにさそってくれたのが、うれしいんです",
+        "男の人が、ダンスを、教えてくれるのが、うれしいんです",
+        "男の人が、ダンスの時に着る服をかりてくれるのが、うれしいんです",
+        "男の人が、ダンスの時に着る服を買ってくれるのが、うれしいんです"
+      ],
+      "answer": 3,
+      "script": [
+        "今度、ダンスパーティーがあるんだけど、一緒に行かない？",
+        "あたし、ダンスが下手なの。",
+        "下手だって、大丈夫だよ。ぼくが、教えてあげるから。",
+        "でも、ダンスの時に着る服がないし。",
+        "なくたってかまわないよ。レンタルすればいいんだから。",
+        "レンタルするのは、高いし。",
+        "高くたっていいじゃないか。ぼくがはらってあげるよ。",
+        "う、うん。一回しか着ないのに、高いお金を出すなんてバカげてるんじゃない？",
+        "わかったよ、買えばいいんだろ。",
+        "わあ、うれしいは。ありがとう。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/5.mp3",
+      "question": "女の人は、どんな家に住みたいと思っていますか？女の人は、ご主人のために何をしてあげるつもりですか？",
+      "options": [
+        "女の人は、通勤が便利で庭がある広い家に住みたいと、おもっています",
+        "女の人は、駅から遠くても庭があって自然に囲まれた家に住みたいと、おもっています",
+        "女の人は、家賃が安くて、小さくても庭のある家にすみたいと、おもっています",
+        "女の人は、仕事で帰りが遅くなることもあるから、駅から遠いところは不便だと、おもっています"
+      ],
+      "answer": 1,
+      "script": [
+        "ねえ、アパートの家賃も高いし、そろそろマイホームを買わない？",
+        "そうだな。小さくたっても自分の家に住みたいよな。",
+        "やっぱり、庭があって自然に囲まれた家がいいわ。",
+        "そんなこと言ったって、無理だよ。",
+        "駅から遠くたっていいじゃない。そうすれば、少しは安くなるはわ。",
+        "通勤が不便になるじゃないか。",
+        "大丈夫よ。",
+        "私がくるまで、駅まで送り迎えしてあげるから。",
+        "でも、仕事で帰りがおそくなることだってあるんだぜ。",
+        "かまわないわよ。",
+        "いくら遅くなったって、わたしが迎えに行くから。"
+      ]
+    }
+  ],
+  "2": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/6.mp3",
+      "question": "二人は、テレビ番組についてはなしています。どんな番組を、見ることにしましたか？",
+      "options": [
+        "男の人は、野球の番組を見たいとおもっていますが、女の人は、レストラン紹介の番組を見たがっています",
+        "男の人は、動物の番組を見たいとおもっていますが、女の人は映画を見たがっています",
+        "男の人は野球の番組を見たいとおもっていますが、女の人は映画を見たがっています",
+        "男の人も女の人も、土曜スペシャルという番組をみたがっています"
+      ],
+      "answer": 2,
+      "script": [
+        "何か面白い番組ある？",
+        "そうだな。",
+        "土曜スペシャルっていう番組があるけど。",
+        "土曜スペシャルって?",
+        "安くて、うまいレストランの紹介だって。",
+        "他になにかない？",
+        "動物おもしろランドってのがあるよ、",
+        "おもしろくなさそうね。",
+        "じゃ、野球の試合を見ることにしようぜ。",
+        "ねえ、映画はないの？",
+        "アポロ１３号ってのがあるよ。",
+        "どうして、それを先に言ってくれないの。早く、テレビつけて。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/7.mp3",
+      "question": "息子は、結婚式のことについて父にはなしました。息子は、どこで結婚式をあげるつもりですか？父は、賛成してくれましたか？",
+      "options": [
+        "父は息子が二人っきりの結婚式をあげることに賛成しています",
+        "父は息子の結婚式に夢をもっていたので、二人っきりの結婚式と聞いてびっくりしています",
+        "父は息子が結婚してくれたら、とにかくうれしいとおもっています",
+        "父は息子が自分のぜんぜん知らない人と結婚するというので、びっくりしています"
+      ],
+      "answer": 1,
+      "script": [
+        "お父さん、ぼく彼女と結婚しようとおもってるんだ",
+        "ええ、彼女って？",
+        "ほら、この前家に連れてきただろ。あの子だよ。",
+        "ぼくたち、ウィーンで結婚式を、あげようとおもうんだけど。",
+        "え？ウィーンって、オーソトリアのウィーンかい？",
+        "そうだよ。ウィーンの教会で、二人っきりであげるんだ。",
+        "二人っきりって、ちょっとまってくれよ。",
+        "お父さんには、お父さんの夢ってのがあるんだよ。",
+        "え？お父さんの夢って？"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/8.mp3",
+      "question": "母と子がはなしています。子どもは、何と何とを探しているのですか？",
+      "options": [
+        "かばんに、きがえをつめていますが、ぼうしとすいとうはまだ見つかりません",
+        "かばんに、きがえを入れたら、ぼうしとすいとうが入らなくなりました",
+        "すいとうは子供の部屋にあるはずなのに、まだ見つかりません",
+        "ぼうしは子供の部屋にあるはずなのに、お母さんがどこかにかたずけてしまいました"
+      ],
+      "answer": 0,
+      "script": [
+        "何してんの？",
+        "着替えを、つめてるんだよ。",
+        "どこへ行くの？",
+        "キャンプにいくんだ。かばんが、小さくて全部入んないや。",
+        "にもつが、多すぎるんじゃないの。少し、へらしたら？",
+        "うん、そうするよ。",
+        "ぼうしは、あった？",
+        "それが、見つかんないんだ。どこに入れたか、わかんないの。",
+        "部屋を片付けなさいって、いつも言ってるでしょ。",
+        "だって、忙しいんだもん。お母さん、すいとうはどこ？",
+        "ええっと。",
+        "お母さん、いつも言ってるでしょ、台所を片付けてって。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/9.mp3",
+      "question": "夫と妻がはなしています。妻が怒っているようです。それは、どうしてですか？",
+      "options": [
+        "お父さんは、明日の土曜日にも仕事がありますが、たぶん早く帰れるだろうとおもいます",
+        "お父さんは、会社の付き合いでいつも帰りが遅く、土曜日も早く帰れるかどうかわかりません",
+        "お父さんは、土曜日には仕事がないので、ときどき子どものサッカーの試合をみるに行くことにしています",
+        "お父さんは、毎日残業があって帰りが遅くなるので、仕事が嫌になってしまいました"
+      ],
+      "answer": 1,
+      "script": [
+        "ただいま。",
+        "おかえりなさい。",
+        "ここのところ、帰りが遅いわね。こんなに遅くまで、毎晩なにしてるの？",
+        "いろんな付き合いがあるもんだからね。",
+        "明日は、土曜日だから早く帰れるんでしょ。",
+        "そんなこと、わからんよ。急に残業、頼まれるかもしれんし",
+        "あなた、明日はうちの子のサッカーの試合があるのよ。",
+        "たまにはみってやったらどうなの。また、知らんぷりして、ほんとにいやになっちゃうわ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/10.mp3",
+      "question": "男の人は何に困っているのですか？",
+      "options": [
+        "大きくて強そうな男の人が、猪をとるので困っています",
+        "大きくて強そうな猪が、おばあさんの畑をあらすので、困っています",
+        "大きくて強そうな猪が、男の人の畑をあらすので、困っています",
+        "大きくて強そうな男の人が、悪い事ばっかりするので、困っています"
+      ],
+      "answer": 2,
+      "script": [
+        "すいません。",
+        "おばあさん、猪を見ませんでしたか",
+        "見ましたけど",
+        "どっちの方に行きましたか？",
+        "こっちの方に走っていったよ",
+        "どんな猪でしたか？",
+        "すっごく、大きくて強そうなやつだったよ",
+        "やっぱり、そうか",
+        "あいつが、うちの畑をあらして困ってるんですよ。悪いことばっかりするんで。",
+        "そりゃ、困ったことだねえ。"
+      ]
+    }
+  ],
+  "3": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/11.mp3",
+      "question": "女の人が、警官とはなしています。女の人は、何をとられたのですか？",
+      "options": [
+        "となりのマンションでは、どろぼうにお金をとられましたが、この女の人の家では、お金はとられませんでした。",
+        "女の人は、家にかぎをかけるのをわすれていたので、どろぼうに入られてしましいました",
+        "女の人は、昔から大切にしていた指輪を、どろぼうにとられてしまいました",
+        "このところ、開いている窓からどろぼうに入られる家が、多くなっています"
+      ],
+      "answer": 2,
+      "script": [
+        "おまわりさん、大変です。どろぼうにはいられたんです。",
+        "家にかぎを、かけていましたか？",
+        "ええ、かぎをかけてたんですけど、窓をやぶられたみたいです。",
+        "あ、やっぱりそうですか？ここんところ、同じようなどろぼうがよく出るんですよ。",
+        "こないだ、となりのマンションにもどろぼうに入られましてね、現金をとられたんですよ。おたくでは、何かとられましたか？",
+        "ええ。私、悔しくって悔しくって。",
+        "よっぽど、大切なものをとられたんですね。",
+        "私の指輪が、なくなっているんです。とっても、高かったんです。",
+        "すっごく気に入ってた指輪なんです。買ったばっかりだったのに。",
+        "そうでしたか。お金は、大丈夫でしたか？",
+        "ええ。給料日、前だから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/12.mp3",
+      "question": "二人は、駅へいきました。そこで男の人は、何と何をかうことにしましたか？",
+      "options": [
+        "男の人は、自動販売機でたばこをかったので、こぜにが少なくなりました",
+        "男の人は、改札機で二人ぶんの切符をかったので、こぜにが増えました",
+        "男の人は、たばこをかったあとこぜにがいっぱいになりましたが、電車の切符をかう時に、そのこぜにを使いました",
+        "男の人は、１０００円しかなかったので、女の人に切符をかってもらいました"
+      ],
+      "answer": 2,
+      "script": [
+        "ちょっと、ここで待ってて",
+        "どこ、行くの？",
+        "たばこ買ってくるから。",
+        "こぜにある？",
+        "あ、１０００円しかない。",
+        "１０００円でも、自動販売機つかえるとおもうけど。",
+        "ああ、こぜにがいっぱいになっちゃった。",
+        "ちょうどよかったじゃない。",
+        "これから、電車の切符かうんだから。私のぶんもかって。",
+        "どこまで？",
+        "渋谷までよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/13.mp3",
+      "question": "女の人は、どうして怒ってしまったのですか？",
+      "options": [
+        "道を間違えたために、映画が始まる時間に、間に合わないかもしれません",
+        "タクシーに乗ったら、道がこんでいたために、映画が始まる時間に、間に合わなくなりました",
+        "違う方向の電車に乗ったために、映画が始まる時間に、間に合いそうにありません",
+        "映画が始まる時間なのに、映画館がみつからなくて、二人はあわてています"
+      ],
+      "answer": 2,
+      "script": [
+        "早く早く、急がないと映画始まっちゃうよ。",
+        "どっちの、電車のるの？",
+        "早く、これに乗ろう。",
+        "ねぇねぇ、この電車ほんとに渋谷行くの？",
+        "たしか、そうだとおもうけど。",
+        "ああ、違うわよ。私たち、間違ったみたい。違う方向よ。",
+        "ほんとだ、しまった。次の駅ついたら、すぐおりよう。",
+        "あああ。映画、始まっちゃう。",
+        "仕方がないな、タクシーで行くか。",
+        "すぐに、タクシー乗れるかしら？",
+        "今ごろの時間、道路こんでるかもしれない",
+        "ほんとに、あなたってば、あわてものなんだから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/14.mp3",
+      "question": "男の人の、携帯電話はどこにいってしまったんですか？",
+      "options": [
+        "電車に乗る前に、会社に電話をして、そのあと駅で携帯電話を、忘れてしまったようです",
+        "電車に乗った後で会社に電話をして、そのあと電車に携帯電話を、忘れてしまったようです",
+        "電車の中で忘れものをしたので、携帯電話で駅に、といあわせてみました",
+        "電車の中で携帯電話がなくなったので、会社に連絡を入れておきました"
+      ],
+      "answer": 1,
+      "script": [
+        "大変だ、大変だ。",
+        "ぼくの携帯電話がなくなっちゃった。",
+        "え？どこに入れて、いたんだい？",
+        "上着のポケットか、かばんの中かどっちかだよ。",
+        "かばんの中はよく、調べてみたのかい？",
+        "もちろんだよ。",
+        "もう一度、調べてみたら？",
+        "もう、何回も何回も調べたよ。",
+        "最後に使ったのは、いつだったんだい？",
+        "えーと。電車に乗った時に、会社に電話を入れたんだ。",
+        "じゃ、きっと電車の中に忘れたんだよ。駅にといあわせてみたら？"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/15.mp3",
+      "question": "社員は部長に、何を相談しているのですか？",
+      "options": [
+        "男の人は、他にやりたいことができたので、会社を辞めるつもりです",
+        "男の人は、奥さんとも相談して、会社を辞めることにしました",
+        "男の人は、まず会社を辞めてから、何をするか考えようとおもっています",
+        "男の人は、奥さんと相談して、会社を辞めることは考えなおすことにしました"
+      ],
+      "answer": 2,
+      "script": [
+        "部長、お話があるのですが",
+        "なんだね。",
+        "これ、受けっとってください。",
+        "え？辞表、じゃないか。",
+        "君、会社を辞めたいっていうのかい？会社を辞めて、どうするつもりなんだい？",
+        "それは、辞めてから考えます。",
+        "奥さんには、もう話したのかい？",
+        "いえ。それはまだ。",
+        "奥さんと、よく話し合ってみたら？",
+        "君は、我が社にとってなくちゃならない人間なんだよ。",
+        "もう一度、考えなおしてみては？"
+      ]
+    }
+  ],
+  "4": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/16.mp3",
+      "question": "女の人は、お見舞いにいきました。何をもって行きましたか？",
+      "options": [
+        "男の人は、もうすぐ退院するので、来週は会社にでられるだろうと、おもいます",
+        "男の人は、来週退院できたら、一週間ほど家で休んでから、会社にでます",
+        "男の人は、来週退院することになっていますが、いつ会社にでられるかは、まだわかっていません",
+        "男の人は、会社を休んでいるので、心配して会社のみんながお見舞いに来てくれました"
+      ],
+      "answer": 1,
+      "script": [
+        "お体の調子はいかがですか？",
+        "ありがとうございます。だいぶ良くなりましたので。ご心配なく。",
+        "これ、お見舞いです。どうぞ。",
+        "きれいな花ですね。",
+        "どうも、すみません。こちらに、おかけください。",
+        "いいえ、おかまいなく。",
+        "会社のみんなからの、お見舞いも預かってきました。これ、どうぞ。みんな、心配しているんですよ。",
+        "すみませんね。どうぞ、みなさんにくれぐれもよろしく。",
+        "来週には、もう退院できるとおもいますので。",
+        "それは、良かったですね。",
+        "おかげさまで。退院後、一週間ほど家で休んでから会社にでます。",
+        "どうぞ、ごゆっくりお休みになってください。",
+        "今日は、これで失礼します。どうぞ、お大事に。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/17.mp3",
+      "question": "二人は会社の同僚です。今日はどこでばんご飯をたべることになりましたか？",
+      "options": [
+        "男の人が来るのが遅かったので、女の人はお腹がペコペコになってしまいました",
+        "男の人は、遅くなってしまったので、女の人にステーキをごちそうすることになりました",
+        "二人は、給料日前なのでステーキを食べないで、女の人のアパートで何か食べることにしました",
+        "男の人は、給料がでたら、何かごちそうすると言いました"
+      ],
+      "answer": 2,
+      "script": [
+        "仕事はまだ、終わらない？",
+        "もちょっとなので、やってしまおうとおもって。",
+        "そう。じゃ、いつものところに行ってるわね。",
+        "お先にどうぞ。ぼくも後から行くから。",
+        "じゃ、また後で。",
+        "おまたせして、ごめん。仕事が終わったとおもったら、国際電話が入ってきて",
+        "それは、ご苦労様。じゃ、ビールで飲む？",
+        "それより、お腹がペコペコなんだ。",
+        "それじゃ、ステーキでも食べに行かない？",
+        "でも、給料日前だし。",
+        "じゃ、私のアパートでも来る？何か、ごちそうするわ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/18.mp3",
+      "question": "留学生は友達といっしょに、お好み焼きやにいきました。味はどうでしたか？",
+      "options": [
+        "女の人は、お好み焼きを食べるのは初めてでしたが、食べてみたらなかなかおいしかったです",
+        "女の人は、お好み焼きを自分で焼くのは初めてでしたが、やってみたらおいしくできました",
+        "女の人は、お好み焼きを焼くのは初めてだったので、店の人が代わりに焼いてくれました",
+        "男の人は、お好み焼きやで、女の人にごちそうになりました"
+      ],
+      "answer": 1,
+      "script": [
+        "材料がきたきた。さ、お好み焼き焼こうか。",
+        "ええ？自分で焼くの？",
+        "そうだよ。君、初めてかい？",
+        "食べたことはあるけど、その時は店の人が焼いてくれたよ。",
+        "ここでは、自分で焼くんだよ。材料を全部まぜて。鉄板にのせるだけだよ。",
+        "これでいい？",
+        "うん、そうそう",
+        "もう、食べられるかな？",
+        "どれどれ。うん、もういけるよ。",
+        "じゃ、いただきます。",
+        "ダメダメ、上にソースをかけないと。",
+        "ああ、おいしかった。",
+        "そろそろ、行こうか。今日はぼくが、おごるよ。",
+        "そんなの、悪いわ",
+        "いいから、いいから",
+        "じゃ、ごちそうさま"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/19.mp3",
+      "question": "子供はどうして困っているのですか？",
+      "options": [
+        "子どもは、サッカーボールをとなりの池に落としたので、おばさんにあやまりに行くことにしました",
+        "子どもは、野球のボールをとなりの庭に入れてしまったので、おばさんにあやまりに行くことにしました",
+        "子どもは、となりの庭にボールを入れてしまいましたが、おばさんがこわいので、お母さんにあやまりに行ってもらうことにしました",
+        "子どもは、となりの庭にボールを入れてしまい、おばさんがおこっているので、お母さんと一緒にいるあやまりに行きました"
+      ],
+      "answer": 2,
+      "script": [
+        "困った、困った",
+        "どうしたの？",
+        "おとなりの庭にボールが入っちゃたんだ。",
+        "また、野球してたのね。",
+        "違う、違う。",
+        "サッカーしてたら、庭の池に落ちたんだよ。",
+        "お母さん、あやまって来てくれない？",
+        "ダメダメ、自分で行かなきゃ。",
+        "だって、となりのおばさんこわいんだもん。",
+        "大丈夫、大丈夫。ちゃんとあやまれば、許してくれるよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/20.mp3",
+      "question": "男の人は、何を手伝うことにしましたか？",
+      "options": [
+        "男の人は、女の人が車いすで街の中を散歩する時に、手伝うつもりです",
+        "男の人は、女の人のお母さんが車いすで街の中を散歩する時に、一緒に行って手伝うつもりです",
+        "男の人は、自分の母が車いすで街の中を散歩する時に、手伝うつもりです",
+        "男の人は、車いすで乗り物に乗ったり降りたりする人をみたら、手伝うつもりです"
+      ],
+      "answer": 1,
+      "script": [
+        "久しぶり",
+        "お変わりないみたいね",
+        "そうでもないけど、さてどこへ行こうか？すき焼きでも、食う？",
+        "うん。昔よく行った店なんかどう？",
+        "仕事辞めたんだって",
+        "そうなの。母が倒れたりしたもんだから",
+        "そうか。ごめんよ、ちっとも知らなくて。",
+        "お母さんの調子はどう？",
+        "おかげで、だいぶ良くなってきたわ。",
+        "この前も、久しぶりで街を散歩したいとか言ったから、車いすで出かけたのよ。",
+        "車いすで、乗り物に乗ったり降りたりするのは大変だろ。",
+        "そうなの。街の中って凸凹が多いし。",
+        "今度行くときは、ぼくにも声をかけてくれよ。おともするから。"
+      ]
+    }
+  ],
+  "5": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/21.mp3",
+      "question": "男の人は外国で何をしていましたか？その時、困っていたことはなんですか？",
+      "options": [
+        "シカゴでホームシックになった時には、毎日日本食のレストランへ行っていました",
+        "シカゴにも、日本食のレストランはあるので、高級レストランへ行けば梅干しも食べれます",
+        "シカゴでは、日本食が食べたくなっても、ぜんぜん食べることができなので、ホームシックになりました",
+        "シカゴでにも日本食のレストランはありますが、高い店なので毎日行くわけにもいきません"
+      ],
+      "answer": 3,
+      "script": [
+        "ねえ、あなたの話も聞かせて？",
+        "ぼくはね、シカゴへ行ってたんだよ",
+        "へえ、会社の仕事かなんかで？",
+        "そう。急に転勤することになってさ",
+        "３年間向こうで、新しい部門の開発とかやったのさ。",
+        "ホームシックとかにならなかった？",
+        "そうだな。",
+        "はじめのころは、日本食を食べたくなったりしたな。",
+        "向こうにも、日本食のレストランあるんでしょ？",
+        "ホテルなんか行けば高級レストランがあるんだけど、毎日そんなところばっかり行くわけにはいかないだろ。",
+        "あたしに言ってくれたら、梅干しでも送ってあげたのに。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/22.mp3",
+      "question": "おばあさんは、電車の中でどんな人に会いましたか？",
+      "options": [
+        "この中学生は、もうすぐ試験があるので、電車の中でもノートを開けて勉強していましたが、おばあさんに席をゆずりました",
+        "この高校生は、試験前なので土曜日も学校へ行きましたが、電車の中でおばあさんに席をゆずりました",
+        "この高校生は、土曜日もじゅくに行って勉強したり電車の中でも勉強したりしていますが、おばあさんに席をゆずってあげました",
+        "この高校生は、電車の中でもノートを開けて勉強をしていたので、おばさんに席をゆずってもらいました"
+      ],
+      "answer": 2,
+      "script": [
+        "おばあさん、どうぞお座りください。こちらに。",
+        "ありがとう、わるいね。",
+        "いいんです。ぼくは、、すぐ降りますから。",
+        "今日も学校があるのかい？土曜日なのに？",
+        "学校じゃないんです。じゅくなんです。",
+        "大変だね、中学生は。",
+        "ぼく、中学生じゃありませんよ。",
+        "ごめん、ごめん。高校生だね。かんしんだね。",
+        "電車の中でもノートを開けて勉強するなんて。",
+        "試験があるんです。",
+        "もうすぐ。じゃ、さようなら。",
+        "ぼく、ここで 降りますから。",
+        "頑張ってね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/23.mp3",
+      "question": "新婚旅行はどうだったと、言っていますか？",
+      "options": [
+        "新婚旅行の時は、あちこち見物したり、ホテルでのんびりしていたら、両親から連絡がありました",
+        "新婚旅行の時に、両親にぜんぜん連絡しなかったので、帰ってから怒られました",
+        "新婚旅行から帰ったのに、両親に連絡しなかったので、怒られました",
+        "新婚旅行の時、お世話になった人たちのために、ほんの気持ちだけのお土産を買いました"
+      ],
+      "answer": 1,
+      "script": [
+        "おめでとうございます。ご結婚なさったそうで",
+        "ありがとうございます",
+        "これ、私からのお祝いです",
+        "困ります。そんなに、気を使っていただいては",
+        "いいえ。ほんの気持ちだけですから",
+        "ところで、いかがでしたか？新婚旅行？",
+        "素晴らしかったですよ、ほんとに。あちこち見物したり、ホテルでのんびりしたり",
+        "それは、良かったですね",
+        "でも、帰ってから両親に怒られたんです",
+        "どうして？",
+        "旅行中に、一度も連絡しなくて",
+        "なるほど。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/24.mp3",
+      "question": "二人はいつ、どこで何をすることにしましたか？",
+      "options": [
+        "お祭りの時に、男の人は飲み物を、一日中売ることになりました。",
+        "日曜日はお祭りがあるので。男の人は朝いちばんに、飲み物を運ぶことになりました",
+        "日曜日はお祭りがあるので、男の人は朝８時半に。女の人を、迎えに行くことになりました",
+        "お祭りの日、女の人が男の人を、迎えに行って、二人一緒にお祭りを見ることになりました"
+      ],
+      "answer": 1,
+      "script": [
+        "鈴木さん、今忙しいい？",
+        "いや、別に。",
+        "今、ちょっといい？じつはね、今度近くの神社でお祭りがあるんだけど。",
+        "いつ？",
+        "今度の日曜日。それで、ちょっとお願いがあるの",
+        "何かな？",
+        "お祭りの時にね、飲み物を売るつもりなんで手伝って欲しいの？",
+        "え、一日中？",
+        "ううん。朝いちばんに車で、飲み物を運んでくれるだけでいいんだけど。",
+        "それぐらいなら、できるよ。ぼくに、任せておいて。",
+        "じゃ、朝の８時半に迎えに行くわ。",
+        "よし、わかったよ。",
+        "じゃ、そういうことでね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/25.mp3",
+      "question": "この学生は、どこで何年くらい働くつもりですか？",
+      "options": [
+        "この人は、インドネシアの日本語学校へ、日本語を教えに行くことなったので、先生に知らせに来ました",
+        "この人は、ベトナムの日本語学校へ、とりあえず一年間教えに行くことになっていますが、3年ぐらい働きたいと思っています",
+        "この人は、ベトナムへ一年間行くことになっていますが、その後でインドネシアへも行きたいと思っています",
+        "この人は、看護婦としてベトナムへ行くことになったので、先生は喜んでくれました"
+      ],
+      "answer": 1,
+      "script": [
+        "どうぞ",
+        "先生、今よろしいですか？",
+        "こちらへ、入って。今ちょうど、一休みしようと思ったところだし。",
+        "じつはぼく、ベトナムに行くことになったんです。",
+        "就職が決まったのかい？",
+        "ええ。ホーチミンの日本語学校に行くことになりまして",
+        "それは良かったじゃないか。おめでとう。何年間の予定だね？",
+        "一様、一年間ということになっていますが、ぼくとしては三年間くらい行きたいと思っているんです",
+        "君ならきっと、いい仕事がやれると思うよ",
+        "話は変わりますが、先生は中村さんをごぞんじですよね？",
+        "彼女は、看護婦として、インドネシアに行くそうですよ。",
+        "そうか、みんな頑張ってるな。私も、鼻が高いよ。"
+      ]
+    }
+  ],
+  "6": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/26.mp3",
+      "question": "男の人は女の人に、どんなことを頼みに来たのですか？",
+      "options": [
+        "大学生になった娘は、大学が遠いので、アパートを見つけました",
+        "大学生になった娘は、アパートが見つからないので、家から通うことにしました",
+        "大学生になった娘のために、アパートを貸してくれるよう頼みました",
+        "アパートが見つかるまで、大学生になった娘を、泊めて欲しいと頼みました"
+      ],
+      "answer": 3,
+      "script": [
+        "お邪魔します。",
+        "どうぞ、こちらに。",
+        "ありがとうございます。で、早速ですが",
+        "はい、何でしょうか？",
+        "じつは、お願いがありましてね。",
+        "どうぞ、ご遠慮なく",
+        "あの、じつは私の娘が、大学生になりまして。",
+        "それは、良かったですね",
+        "ところが、大学が遠いので、アパートを探してるんですが、なかなか見つからなくて。",
+        "そうですか。",
+        "それで、お宅に娘をしばらく泊めて、いただけないかと思いまして。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/27.mp3",
+      "question": "女の人は、パソコンの学校へ行ってどんなコースを申し込みましたか？",
+      "options": [
+        "女の人は、土曜日と日曜日の二日間のコースを申し込んだので、二万三千円払わなければなりません",
+        "女の人は、土曜日の午後のコースを申し込んだので、お金は払わなくてもいいです",
+        "女の人は、土曜日の午後と日曜日の二日間コースを申し込んだので、二万円払わなければなりません",
+        "女の人は、土曜日の午後のコースを申し込んだので、テキスト代三千円を払わないとなりません"
+      ],
+      "answer": 1,
+      "script": [
+        "ちょっと、すみません。お聞きしたいんですが？",
+        "はい。どのような、ご用件ですか？",
+        "パソコンの講習会に、申し込みたいと思っているんですけど。",
+        "いろいろな、コースがございますが、おたくのパソコンはどんな機種でしょうか？",
+        "じつはまだ、パソコンは買ってないんです。",
+        "これから買うんですけど、その前にどんなものか、知りたいと思ったもんですから",
+        "では、初心者用コースはいかがでしょう？",
+        "土曜日と日曜日の二日間のコースです。",
+        "料金は、いくらぐらいかしら。",
+        "1日一万円で、あとテキスト代が三千円ですが",
+        "ああ、そうですか。ちょっと、考えさせてください",
+        "それから、入門者のための無料コースもございますよ",
+        "土曜日の午後1時から3時半までなんですけど。",
+        "それが、いいわね。",
+        "じゃ、とりあえず、それを申し込むことにするわ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/28.mp3",
+      "question": "男の人は、旅行社に相談へ行きました。どんな旅行をすることにしましたか？そこへ行くには、飛行機を乗り換えなければなりせんか？",
+      "options": [
+        "水曜日に出発すれば、行きは直行便を利用することができますが、帰りは直行便がありません",
+        "水曜日に出発すれば、行きは乗り換えることになりますが、帰りは直行便を利用することができます",
+        "水曜日に出発すれば、行きも帰りも直行便を利用することができます",
+        "水曜日直行便の出発は、あいにく予約がいっぱいになってしまったので、乗り換えることになります"
+      ],
+      "answer": 0,
+      "script": [
+        "いらっしゃいませ",
+        "どちらを、ご希望ですか？",
+        "マレーシアあたりの小さな島で、のんびりしたいと思ってるんだけど",
+        "じゃ、ランカウイン島なんていかがでしょうか？",
+        "直行便があるの？",
+        "週に1便だけ、飛んでいますが",
+        "週に1便というと？",
+        "毎週水曜の飛行機は、まっすぐランカウイン島に行きます",
+        "じゃ、行きも帰りもそれを利用できるわけ？",
+        "あいにく、お帰りは乗り換えていただくことになりますが。",
+        "そうか、仕方ないな。",
+        "では、水曜出発４泊５日ランカウイン島の旅でよろしいですね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/29.mp3",
+      "question": "女の人が、ホテルに電話をかけています。何人で、泊まるつもりですか？そのホテルを予約することは、できましたか？",
+      "options": [
+        "女の人は、家族3人でホテルに泊まるつもりでしたが、キャンセルすることになりました",
+        "女の人は、ご主人と二人でホテルに一泊したいので、電話をかけて予約しておきました",
+        "女の人は、家族3人で土曜日にホテルに泊まりたいのですが、まだ予約ができていません",
+        "女の人は、家族3人で土曜日にホテルに泊まりたいので、電話かけてみたら、予約ができました"
+      ],
+      "answer": 2,
+      "script": [
+        "もしもし、宿泊の係りの方お願いします",
+        "はい。私でございますが。",
+        "あのー。",
+        "来週の土曜日に、そちらで一泊したいのですが？",
+        "何名様でしょうか？",
+        "三名です。",
+        "主人と私と子供です。",
+        "主人と私と子供です。",
+        "大人2名様、子供1名様ですね。少々お待ちくださいませ。",
+        "お待たせいたしました。",
+        "申し訳ありませんが、その日は予約がいっぱいになっておりまして。もしよろしかったら、キャンセル待ちを伺っておきますが。",
+        "じゃ、そうしていただこうかしら。",
+        "では、お名前と電話番号を、よろしくお願いいたします。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/30.mp3",
+      "question": "お母さんは、旅行に行く前に子供に何を頼みましたか？",
+      "options": [
+        "冷蔵庫の一番上に、犬のエサが入れてあるので、朝・晩の二回に分けてやりなさい",
+        "冷蔵庫の2段目に犬のエサが入れてあるので、朝・晩の二回に分けてやりなさい",
+        "冷蔵庫のエサをやって、朝と晩の二回ちゃんと犬を散歩に連れって行ってやりなさい",
+        "冷蔵庫の一番上と2段目に犬のエサが入れてあるから、朝・晩の二回に分けてちゃんとをやりなさい"
+      ],
+      "answer": 1,
+      "script": [
+        "今日から、お母さんは、旅行に行くからね。",
+        "お留守番お願いね。",
+        "大丈夫だよ。心配いらないよ。",
+        "わんちゃんのお世話も忘れないでね。",
+        "エサをやればいいんだろ？",
+        "エサは冷蔵庫の2段目に、入れてあるからね",
+        "朝と晩の二回に分けてね。ちゃんとやるのよ。",
+        "それからね、散歩にも連れて行ってやりなさい。",
+        "それからね、みんなの今晩のごはんはね、冷蔵庫の一番上に肉が入ってるし。",
+        "それに。",
+        "いいから、いいから。",
+        "早く行ってらっしゃい。"
+      ]
+    }
+  ],
+  "7": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/31.mp3",
+      "question": "学生は何を頼みましたか？どうするように、言われましたか？",
+      "options": [
+        "ミィーティングの前に、一階の受付で会議室の鍵を借りて、終わったらまた鍵をかけて、５時までに返すようにしてください",
+        "ミィーティングの前に、一階の受付で会議室の鍵を開けてもらうように頼んで、終わったらまた受付に知らせてください",
+        "鍵はここには置いてないから、今から一階の受付に行って会議室の鍵を借りてきてください",
+        "会議室は４時半までしか使えないので、４時半には必ずミィーティングを終わるようにしてください"
+      ],
+      "answer": 0,
+      "script": [
+        "すみません、来週の水曜日に、学生のミィーティングをしたいと思っておりまして。",
+        "それで、どこか部屋をお借りしたいんですが。",
+        "じゃ、第七会議室を使ってください。",
+        "その部屋には、鍵がかかっているんですか？",
+        "ええ、かかっていますよ。でもその鍵はね、ここにはないんですよ。",
+        "だから、当日にね一階の受付に行ってね、鍵をかしてもらってください。",
+        "ミィーティングは、何時までですか？",
+        "４時半までの予定なんですが。",
+        "じゃ、４時半に終わったらね、また鍵をかけてね。",
+        "その鍵を、受付に返してください。受付は、５時になったら閉まってしまいますからね。",
+        "必ずその前に返すようにしてくださいよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/32.mp3",
+      "question": "学生は、先生のところに相談に行って何を頼みましたか？先生は、どうして怒ったのですか？",
+      "options": [
+        "先生は学生に、絶対にアルバイトをしないように、言いたいのです",
+        "先生は学生に、追試を受けることはできないと、言いたいのです",
+        "先生は学生に、勉強よりアルバイトを大切にするように、言いたいのです",
+        "先生は学生に、勉強よりアルバイトのほうを大切にするのはよくないと、言いたいのです"
+      ],
+      "answer": 3,
+      "script": [
+        "あの。",
+        "はい？",
+        "来週の試験こと何ですけど。",
+        "うん。",
+        "アルバイトがありまして。",
+        "そう。",
+        "試験を受けられないもんで。",
+        "それで？",
+        "追試をお願いできないかと思いまして。",
+        "君、大学の勉強とアルバイトどちらのほうが大切だと、思ってるんだね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/33.mp3",
+      "question": "女の人は、身体の調子が良くないので相談に行きました。何の病気だと思いますか？",
+      "options": [
+        "女の人は、身体の調子が悪いので内科で診てもらいましたが、原因がわからなかったそうです",
+        "女の人は、夜はいいけれど昼間は調子が悪くて、頭がふらふらするそうです",
+        "女の人は、頭がふらふらしたりお腹の調子が悪かったり、するそうです",
+        "女の人は、頭がふらふらしたり、心臓がドキドキしたりするので、内科で診てもらったほうがいいかどうか考えてます"
+      ],
+      "answer": 0,
+      "script": [
+        "どうしました？",
+        "どうも、この頃調子が悪くて。頭がふらふらするんです。",
+        "それは、いけませんね。",
+        "心臓がドキドキして、死ぬんじゃないかと思ったりして。",
+        "そうですか。",
+        "そう思うと怖くて、ますます胸が苦しくなって。",
+        "なるほど",
+        "昼間はまだいいんですけど。夜になると。",
+        "もっと、不安になるってわけですか？",
+        "ところで、 内科のお医者さんには診てもらったんですか？",
+        "それが、どこもわるくないって。あたし、どうしたらいいんでしょう."
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/34.mp3",
+      "question": "男の人は、店で何を注文しましたか？それは、いつできますか？いくらですか？",
+      "options": [
+        "Lサイズで、３枚ずつやきましを頼んだら、明後日の５時に出来上がると言われました",
+        "１枚２０円の、やきましを頼んだら、明日の７時に出来上がると言われました",
+        "Mサイズのほうが安いので、やきましを頼んだら、明後日の５時に出来上がるということです",
+        "Lサイズのほうが安いので、やきましを頼んだら、明後日の７時に出来上がるということです"
+      ],
+      "answer": 0,
+      "script": [
+        "いっらしゃいませ",
+        "すみません。",
+        "この写真、やきましお願いします。これ３枚と、これ３枚。",
+        "ありがとうございます。",
+        "この、フィルムの１２番と１５番、それぞれ３枚ずつですね？",
+        "ええ。そうです。",
+        "MサイズとLサイズがございますが。",
+        "値段は、同じですか？",
+        "普通はLサイズのほうがお高いんですが、今特別セールをやっておりまして、そちらのほうがお安くなっています。２０円です。",
+        "それじゃ、Lサイズでお願いします。いつ、出来上がりますか？",
+        "明後日の５時です。",
+        "１０日の５時ですね。お店は何時までですか？",
+        "７時までやっております。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/35.mp3",
+      "question": "男の人は、どうして銀行の機械をうまく使えなかったのですか？",
+      "options": [
+        "お客さんは、キャッシュカードを持っていなかったので、振込みができませんでした",
+        "お客さんは、間違ったボタンを押したので、振込みができませんでした",
+        "お客さんの口座には、お金がなかったので、振込みができませんでした",
+        "銀行の機械が故障していたので、振込みができませんでした"
+      ],
+      "answer": 2,
+      "script": [
+        "すみません、NHK料金を払い込みたいんですけど",
+        "キャッシュカードお持ちですかか？",
+        "ええ。",
+        "それなら、この機械をご利用ください。",
+        "ボタンを押してください。",
+        "ボタンってこれですか？２つ目のボタンですね。",
+        "はい。",
+        "それから、カードを入れて相手の番号を押してください。",
+        "カードを入れてから、番号を押すんですね？あれ、できないよ。変だなあ。",
+        "お客様、申し訳ございません。口座にお金がないようで。"
+      ]
+    }
+  ],
+  "8": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/36.mp3",
+      "question": "女の人は、何を知らなかったんですか？結局どうすることにしましたか？",
+      "options": [
+        "女の人は、１０時過ぎにスーパーの駐車場にバイクを停めていたので、しかられました",
+        "女の人は、スーパーが開店してから、バイクを停めることにしました",
+        "女の人は、開店前にスーパーの駐車場にバイクを停めては、いけないことを知りませんでした",
+        "駅前の駐車場は、１０時からしかバイクを停めることができません"
+      ],
+      "answer": 2,
+      "script": [
+        "もしもし、ここにバイクを停めないでください。",
+        "ええ？停めちゃいけないの？みんなよくここに停めているのに。",
+        "ここは、スーパーの駐車場ですよ。",
+        "だから、スーパーが開いてる時間なら停めてもいいけど、開いてない時間に停めちゃいけないんですよ。",
+        "買い物する人のための駐車場なんだからね。",
+        "はあ、そうなんですか？知らなかった。ごめんなさい。ところで、スーパーの開店時間は何時かしら？",
+        "スーパーは、１０時開店ですよ。まだ、３０分以上ありますよ。有料駐車場なら、駅前にありますけど。",
+        "そうね、３０分も待ってられないもんね。そっちを、利用することにするわ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/37.mp3",
+      "question": "同僚の田中さんと木村さんは、仕事のあとにバーにいきました。木村さんは、何を心配しているのですか？",
+      "options": [
+        "木村さんは、車で来ているのに、ビールやウイスキーをどんどん飲んでしまいました",
+        "木村さんは、車で来ているのでビールやウイスキーを飲まないで、ウーロン茶だけ飲みました",
+        "木村さんはまだ仕事が残っているから、ビールやウイスキーを飲まないで、ウーロン茶だけ飲みました",
+        "木村さんは、ビールもウイスキーも飲めない人なので、ウーロン茶を飲みました"
+      ],
+      "answer": 1,
+      "script": [
+        "おい、おまえビールの飲みすぎじゃないか。顔が真っ赤だよ",
+        "そんなことないよ。木村も飲めよ",
+        "おれは、車で来てるから飲めないんだ。ウーロン茶おかわりもらうよ。",
+        "おれは、ウイスキーもらうよ。今日は、どんどん飲むぞ。",
+        "さあ、もう１１時だよ。そろそろ、帰るぞ。送って行くよ。",
+        "まあまあ、そんなこと言うなよ。もう一軒いこう。行こう。",
+        "おれたち、土曜日も仕事があるんだからな。",
+        "そんなに飲むと、明日の仕事に差し支えるぞ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/38.mp3",
+      "question": "新幹線の中で、女の人は男の人に声をかけられました。それは、どうしてですか？男の人の指定席はどこですか？女の人の指定席はどこですか？",
+      "options": [
+        "男の人は、席を間違えていたので、移動するときに、女の人の足を踏んでしまいました",
+        "女の人は、席を間違えていたので、移動するときに、男の人の足を踏んでしまいました",
+        "女の人は、指定席の切符をもっていないのに、三号車に座っていたので、男の人に注意されました",
+        "女の人は、うっかりして番号が違う席に座っていたので、男の人に注意されました"
+      ],
+      "answer": 1,
+      "script": [
+        "もしもし、ここ私の席なんですが。",
+        "ええ？ここは、私の席のはずですよ。",
+        "ここに切符もありますよ。ほら、１２Bでしょ？",
+        "ここは、 三号車ですよ。あなたの切符は、四号車じゃありませんか。",
+        "ああ、ほんとだわ。うっかりしておりまして。",
+        "いいえ、どういたしまして。",
+        "すぐに４合車へ移動しますから。",
+        "あ、痛い。足が。",
+        "ごめんなさい、踏んでしまいまして。申し訳ございません。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/39.mp3",
+      "question": "男の人は、なんのために電話をかけましたか？",
+      "options": [
+        "リンさんは、山田さんのおかげで、留学することができたので、お礼にごちそうしたいと思っています",
+        "リンさんは、山田さんのおかげで、就職が決まったので、一度自分のアパートへ招待して、ごちそうしたいと思っています",
+        "リンさんは、山田さんのおかげで、新しい仕事が決まったので、一度レストランへ招待したいと思っています",
+        "リンさんは、山田さんのおかげで、新しいアパートが見つかったので、一度アパートへ招待したいと思っています"
+      ],
+      "answer": 1,
+      "script": [
+        "もしもし、山田さんのお宅でしょうか？",
+        "はい、そうですが。",
+        "私、留学生のリンと申しますが。",
+        "あいにく、主人は出張しておりまして。",
+        "このたびは、山田さんにすっかりお世話になりまして。",
+        "そうですか？なんのお役にも立てませんで。",
+        "いいえ、おかげさまで新しい仕事が決まりました。",
+        "それは、良かったですね。ご就職おめでとうございます。",
+        "つきましては、一度私のアパートへおいでくださいませんか？",
+        "お口に合うかどうかわかりませんが、私の手料理でも召し上がって頂きたいと存じあげまして。",
+        "そうですか？ありがとうございます。主人が、戻りましたらそのように伝えておきます。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/40.mp3",
+      "question": "二人は、いつ釣りにでかけることにしましたか？女の人は、何をすることになりましたか？男の人は、何をすることになりましたか？",
+      "options": [
+        "男の人が、夜車を運転してくれるので、女の人はおにぎりとジュースを持て行くことにしました",
+        "男の人が、朝早く起きて車を運転してくれるので、女の人はおにぎりとジュースを持って行くことにしました",
+        "女の人は、朝早く起きておにぎりを作ってビールと一緒に、持って行くことにしました",
+        "女の人は、夜男の人に車を運転してもらうので、その代わりおにぎりとビールを持って行くことにしました"
+      ],
+      "answer": 3,
+      "script": [
+        "ね、いつか釣りに行こうよ",
+        "いいけど、でも早く起きないといけないんじゃない？早起きは、あんまり。",
+        "心配ないよ。前の晩に車ででかけるんだから",
+        "あたし、夜運転するのはどうも。",
+        "ぼくの車で行けばいいじゃないか？",
+        "そうね、運転してくれるなら行くわ。次の土曜日はどう？",
+        "うーん。その日はちょっと。",
+        "じゃ、再来週の土曜日は？",
+        "よし、決めた。そうしよう。",
+        "あたし、おにぎりとジュース持って行くわ。",
+        "ジュースはちょっと。",
+        "わかった、わかった。ビールにすればいいんでしょ。"
+      ]
+    }
+  ],
+  "9": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/41.mp3",
+      "question": "女の人は夜遅く、アパートの隣に住む男の人の家をたずねました。なんのためにたずねたのですか？その時、男の人は何をしていましたか？",
+      "options": [
+        "おばあちゃんが、夜早く寝るので、テレビをつけられなくて困っています",
+        "おばあちゃんがテレビを見る時に、音を大きくするので困っています",
+        "隣の人が、夜遅く音を大きくしてテレビを見るので、うるさくて困っています",
+        "仕事が忙しくて、晩ご飯の時間がいつも遅くなってしまうので、困っています"
+      ],
+      "answer": 2,
+      "script": [
+        "こんばんは、今ちょっと、よろしいでしょうか？",
+        "どうぞ、残業で遅くなりましてね、これからご飯なんですよ。",
+        "大変ですね、お仕事。",
+        "じつは、うちのおばあちゃんのこんとなんですけどね。夜寝るのが早くて",
+        "おばあちゃん、もうお休みですか？",
+        "ええ。それで、テレビの音がちょっときになるって言うもんですから。",
+        "うちのテレビうるさいですか？",
+        "ええ。ちょっと。",
+        "それに、野球を応援なさる声がちょっと。",
+        "すみませんでした。",
+        "ちっとも気がつかなくて。これからは、気をつけますから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/42.mp3",
+      "question": "客は何と何を買いましたか？どちらも、配達を頼みましたか？",
+      "options": [
+        "親戚の家とおばあちゃんの家に、みかんを一箱ずつ届けてもらうよう、頼みました",
+        "親戚の家にみかんを一箱、宅急便で届けてくれるよう、頼みました",
+        "親戚の家にみかんを一箱と、自分の家にすいかを配達してもらうように、頼みました",
+        "親戚の家は、昼間は誰もいないから、夜にみかんを一箱届けてくれるよう、頼みました"
+      ],
+      "answer": 1,
+      "script": [
+        "いっらしゃい。",
+        "みかんを、一箱買いたいんだけど、ちょっと味見させて。",
+        "はいよ、どうぞ食べてみて。甘くて美味しだろ。",
+        "そうね、じゃこれ届けてちょうだい。大阪の親戚の家まで。",
+        "じゃあ、この宅急便の用紙に記入してもらえるかな？",
+        "はい、これでいい？",
+        "夜間配達、ご希望ですか？",
+        "夜間配達って？",
+        "このごろは、奥さんも仕事に出てるとことが多いから、昼間誰も家にいないでしょ。",
+        "だから、夜に配達してもらうんだよ。",
+        "なるぼど。でもそれはいいわ。おばあちゃんがうちにいるから。",
+        "えーと、それからこのすいかもちょうだい。",
+        "配達しますか？",
+        "いいえ、結構よ。車で来てるから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/43.mp3",
+      "question": "駅員は、どんな乗客と話していますか？",
+      "options": [
+        "乗客は電車の中で寝ていたので、駅員が切符を調べに来たのに、気がつきませんでした",
+        "乗客はお酒をたくさん飲んで、電車の中で寝ていたので、終点に着いたのに気がつきませんでした",
+        "乗客はお酒をたくさん飲んで、駅のベンチで寝ていたので、駅員におこされました",
+        "乗客はお酒をたくさん飲んでいて、ちゃんと歩けないので、タクシーを呼んでもらって、帰ることにしました"
+      ],
+      "answer": 1,
+      "script": [
+        "もしもし、お客さん終点ですよ。起きて、ください。",
+        "わかってるよ、そんな大きな声で言わなくたって。",
+        "歩けますか？",
+        "私の手に捕まってください。",
+        "平気平気、一人で歩けるから。",
+        "でも、お客さんは、お酒をたくさん召し上がっているようだから、危ないですよ。",
+        "大丈夫だよ。",
+        "まっすぐ歩いてるから。トイレは、ここかい？",
+        "ああ、違います。",
+        "ちょっと、待ってください。ご案内しますから。",
+        "いらない、いらない。自分で行けるから。",
+        "タクシー呼びましょうか？",
+        "いいよ、いいよ。歩いて帰るから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/44.mp3",
+      "question": "二人は明日、何をすることになりましたか？",
+      "options": [
+        "二人は今日のうちに、前売り券を買っておいて、明日５時からのアメフトの試合を見に行くことにしました",
+        "二人は明日の５時からのアメフトの試合に、当日券を買って入ることにしました",
+        "二人は学生の時に、アメフトをやっていたので、試合を見ることが好きです",
+        "二人は社会人アメフトチームに入っているので、よく試合に行きます"
+      ],
+      "answer": 1,
+      "script": [
+        "明日、アメフトの試合、見に行こうと思っているんだけど",
+        "どことどこの試合なんだい？",
+        "学生オールスターと、社会人オールスターだよ",
+        "そうか、おもしろそうだな。一緒に行ってもいいかな？",
+        "もちろんだよ。大勢で行ったほうがおもしろいからな。",
+        "どっちが勝つかな？",
+        "どっちも、強いチームだからな。なんとも言えないな。",
+        "試合は、何時から？",
+        "午後、５時からだよ。",
+        "雨が降ってもやるのかな？",
+        "うん、そうだよ。",
+        "ところで君、前売り券買っておいてくれないか？",
+        "いいけど、でも今日はぼく金持ってきてないよ。",
+        "じつは、ぼくもなんだ。仕方ないな。当日券にするか。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/45.mp3",
+      "question": "お父さんが、息子の大学生活について聞いています。どんな大学生活ですか？",
+      "options": [
+        "お父さんは、たけしが留学すること賛成げすが、アルバイトをすることは反対しています",
+        "お父さんは、たけしが留学することに賛成しているので、留学の費用もなんとかしてくれるようです",
+        "お父さんは、たけしが留学することに反対しているので、留学の費用を出してくれません",
+        "お父さんは、たけしが留学することに賛成ですが、留学の費用は出してくれません"
+      ],
+      "answer": 3,
+      "script": [
+        "たけし、大学生活は楽しいか？",
+        "うん、クラブ活動が楽しいな。",
+        "どんな、クラブに入ったんだい？",
+        "交際学生クラブだよ。",
+        "外国人学生との交流もあるのかな？",
+        "うん、そうだなんだ。",
+        "ぼくも、留学したいと思ってるんだけど。",
+        "若いうちにいろんな経験をするのはいいことだけど、費用は自分でなんとかしろよ。",
+        "わかってるよ。だから、アルバイトしてるんじゃないか。",
+        "おまえ、クラブやアルバイトが忙しそうだけど、勉強のほうもしっかりやってるかな？",
+        "大丈夫、大丈夫。",
+        "せんぱいが、ノートを貸してくれるんだ。"
+      ]
+    }
+  ],
+  "10": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/46.mp3",
+      "question": "デパートで女の人が父親の誕生日プレゼントを母親と選んでいます。女の人はどのセーターを買いますか。",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 0,
+      "script": [
+        "ねえねえ、お母さん。",
+        "お父さんってどんなセーターが好きだと思う？",
+        "そうねえ。",
+        "首の周りは開いてる方が楽だって言ってるわね。",
+        "へえー",
+        "そうなの？",
+        "色は白と黒どっちが好き？",
+        "そうねえ",
+        "黒はあまり好きじゃないみたいね。",
+        "じゃ、これにしよ。"
+      ],
+      "image": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/46.jpg"
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/47.mp3",
+      "question": "プールの受付で男の人が係りの人と話しています。この後男の人はいくら支払いますか。",
+      "options": [
+        "４００円",
+        "５００円",
+        "６００円",
+        "７００円"
+      ],
+      "answer": 2,
+      "script": [
+        "こちらのプールを利用したいんですが",
+        "初めてですか？",
+        "はい。",
+        "それでは、利用カードをお作りしますね。",
+        "プールをご利用になるときは",
+        "利用カードを見せて４００円払ってください。",
+        "本日はカード代の２００円もお願いします。",
+        "わかりました。",
+        "それから、泳ぐときには水泳用のぼうしが必要で",
+        "こちらは１００円でお貸ししております。",
+        "あ、ぼうしはあります。",
+        "ああ、そうですか。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/48.mp3",
+      "question": "留守番電話のメッセージを聞いています。メッセージを聞いた人はこの後何をしますか。",
+      "options": [
+        "帽子を送ります",
+        "ファックスをします",
+        "メールをします",
+        "写真を送ります"
+      ],
+      "answer": 2,
+      "script": [
+        "あ、もしもし",
+        "すずきです。",
+        "先週のパーティーに来てくれてありがとう。",
+        "ところであの日うちにぼうし忘れていったでしょう？",
+        "今度送るので住所教えてもらえる？",
+        "あ、でも今ファックスが壊れているのでメールでお願い。",
+        "後、パーティーの時の写真もできたので一緒に送るね。",
+        "じゃ、またね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/49.mp3",
+      "question": "男の人と女の人が話しています。男の人はこれからどうしますか。",
+      "options": [
+        "ラジオを聞きます",
+        "歌を歌います",
+        "ラジオ局に電話します",
+        "インターネットをします"
+      ],
+      "answer": 0,
+      "script": [
+        "今朝ラジオを聴いていたら懐かしい曲がかかっててね。",
+        "へえー、なんて曲？",
+        "それがね、どうしても思い出せなくてね。",
+        "気になってしょうがないんだ。",
+        "大学時代に歌っていたんだけど。",
+        "ずいぶん前の話しね。",
+        "じゃ、そのラジオ局に電話して聞いたらわかるんじゃない？",
+        "うーん、でもなんて聞けばいいだろう？",
+        "歌が歌えればいいんだけど",
+        "そうね。",
+        "あ、そのラジオ局のホームページに曲名がのってるんじゃないかな？",
+        "あ、そうだね。",
+        "ありがとう。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/50.mp3",
+      "question": "会社で男の人と女の人が話しています。男の人はこの後まず何をしなければなりませんか。",
+      "options": [
+        "休みます",
+        "会議に出ます",
+        "田中さんに電話します",
+        "書類の準備をします"
+      ],
+      "answer": 2,
+      "script": [
+        "課長、田中さんから電話がありまして",
+        "熱があって今日はお休みだそうです。",
+        "ああ、そう。",
+        "最近忙しかったから。",
+        "あ、明日田中さんと二人でひかり電気の会議に出てもらう事になっていましたね。",
+        "その準備はどうなっていますか？",
+        "私の方の準備は終わっています。",
+        "田中さんは家でやるって言っていました。",
+        "そう。じゃ、田中さんに電話して",
+        "書類ができているかどうか聞いてみてください。",
+        "もし、まだだったらすぐに準備してもらえますか？",
+        "はい。",
+        "それから、明日来られそうかどうかも聞いてみてもらえますか？",
+        "無理そうだったら悪いけど一人で行ってくださいね。",
+        "はい、わかりました。"
+      ]
+    }
+  ],
+  "11": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/51.mp3",
+      "question": "留守番電話のメッセージを聞いています。加藤さんは何時ごろ着くと言っていますか。",
+      "options": [
+        "四時",
+        "四時半",
+        "五時",
+        "五時半"
+      ],
+      "answer": 3,
+      "script": [
+        "あ、加藤です。",
+        "今日４時半に田中さんと３人で会う約束でしたが",
+        "１時間んぐらい遅れそうなんです。",
+        "事故があってもう３０分も電車が駅に止まったままで。",
+        "さっき連絡があったんですが",
+        "田中さんは授業が早く終わったんで",
+        "４時には着くそうです。",
+        "すいません。",
+        "とにかく急いで行きます。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/52.mp3",
+      "question": "女の人と男の人が話しています。男の人は今どのスポーツをしていますか。",
+      "options": [
+        "サッカー",
+        "バスケット",
+        "テニス",
+        "卓球"
+      ],
+      "answer": 3,
+      "script": [
+        "ねえ、田中くん",
+        "サッカー好き？",
+        "うん。",
+        "ボールを使うスポーツっていいよね。",
+        "サッカーとかバスケットとか。",
+        "山田さんは？",
+        "私？",
+        "私も小さいころからサッカーが好きで",
+        "今でも時々観に行くのよ。",
+        "そう。",
+        "何かスポーツしないの？",
+        "うん、スポーツは観るだけ。",
+        "田中くんは何かスポーツしてる？",
+        "僕は、高校時代テニスをしていたんだけど最近は卓球をしてるんだ。",
+        "やってみたら面白くてね。",
+        "へえー、そうなんだ。",
+        "私もやってみようかな。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/53.mp3",
+      "question": "男の留学生がお世話になった人と話しています。留学生は何が最高の思い出だと言っていますか。",
+      "options": [
+        "おいしい料理を食べること",
+        "子供と遊ぶこと",
+        "写真をもらうこと",
+        "日本の習慣を習うこと"
+      ],
+      "answer": 1,
+      "script": [
+        "いろいろお世話になりました。",
+        "短かったけど楽しかったわ。",
+        "僕もです。",
+        "作ってくださった料理はとても美味しかったです。",
+        "それに日本の習慣もいろいろ教えてくださってありがとうございました。",
+        "こちらこそ",
+        "マイクさんには子どもと遊んでもらって。",
+        "僕には兄弟がいませんから",
+        "忘れられない最高の思い出になりました。",
+        "さびしくなりますね。",
+        "また、遊びに来てくださいね。",
+        "はい。",
+        "ありがとうございます。",
+        "帰ったらメールで写真を送ります。",
+        "ありがとう。",
+        "じゃ、メール楽しみに待っていますね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/54.mp3",
+      "question": "男のアナウンサーが女の人にインタビューしています。女の人はどうしてこのグループのコンサートに来ましたか。",
+      "options": [
+        "このグループの歌が好きだから",
+        "友達がこのグループのファンだから",
+        "グループのリーダーが好きだから",
+        "グループのリーダーのポスターがほしいから"
+      ],
+      "answer": 1,
+      "script": [
+        "あの、ミナミテレビですが",
+        "ちょっとインタビューいいですか？",
+        "あ、はい。",
+        "このグループのコンサートにはよくいらっしゃいますか？",
+        "そうですねえ、時々来てます。",
+        "このグループの歌",
+        "私はまあ悪くないかなぐらいなんですけど",
+        "とにかく友達が毎回一緒に行こうって言うんで。",
+        "お友達はこのグループのファン何ですか？",
+        "ええ、CD全部持っているんですよ。",
+        "歌も好きみたいですけどとにかくグループのリーダーに夢中で",
+        "部屋中に彼のポスターがあって",
+        "それにダンスが最高って言ってます。",
+        "なるほど、そうですか。",
+        "どうもありがとうございました。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/55.mp3",
+      "question": "スーパーで店員がりんごの説明をしています。りんごはなぜ安いのですか。",
+      "options": [
+        "虫に食べられた傷があるから",
+        "薬を使ってしまうから",
+        "味は普通のりんごほどよくないから",
+        "台風に落ちてしまって、表面に傷があるから"
+      ],
+      "answer": 3,
+      "script": [
+        "さあ、安いよ安いよ。",
+        "このりんご今日は特別一つ５０円です。",
+        "安さの秘密は表面の傷。",
+        "虫に食べられた傷じゃありませんよ。",
+        "このりんご先日の台風で落ちてしまったりんごで",
+        "表面に多少の傷や汚れはありますが",
+        "味は普通のりんごと全く変わりありません。",
+        "それに薬を使っていませんから安心ですよ。",
+        "さあ、いかがですか。"
+      ]
+    }
+  ],
+  "12": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/56.mp3",
+      "question": "女の人と男の人が話しています。男の人は女の人にどのようなことをお願いしていますか。",
+      "options": [
+        "結婚式で歌ってもらうこと",
+        "結婚式でピアノをひいてもらうこと",
+        "歌を教えてもらうこと",
+        "ピアノを教えてもらうこと"
+      ],
+      "answer": 3,
+      "script": [
+        "あの、お願いって何でしょうか？",
+        "あの、田中さんは",
+        "歌やピアノを教えていらっしゃるって聞いたんですが。",
+        "実は来月知り合いの結婚式があって",
+        "私がピアノを演奏して友達が歌を歌うことになったんです。",
+        "でも、私そんなにできるわけじゃなくて困っているんですが",
+        "あの、お時間のある時に教えていただけないでしょうか？"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/57.mp3",
+      "question": "アナウンサーガスーパーからリポートしています。アナウンサーは何についてリポートしていますか。",
+      "options": [
+        "面白い形の野菜",
+        "めずらしい色の野菜",
+        "かわった味の野菜",
+        "値段の高い野菜"
+      ],
+      "answer": 1,
+      "script": [
+        "こちら、スーパーの野菜売り場です。",
+        "ご覧ください。",
+        "めずらしい野菜が並んでいますね。",
+        "この黄色いの何だと思いますか？",
+        "形はきゅうりですが",
+        "ちょっといただきます。",
+        "うーん、きゅうりの味です。",
+        "おいしいです。",
+        "じつは技術が進んで簡単に野菜の色を変えられるようになったそうです。",
+        "面白いですね。",
+        "ところがこのような野菜はあまり売れていません。",
+        "値段は普通の野菜とは変わらないのですが",
+        "やはり美味しそうには見えないのでしょうか。",
+        "それが原因かもしれません。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/58.mp3",
+      "question": "中学生の男の子が友達についてスピーチしています。男の子はどんな付き合い方がいいと言っていますか。",
+      "options": [
+        "多くの友達と浅く付き合う",
+        "多くの友達と深く付き合う",
+        "少数の友達と浅く付き合う",
+        "少数の友達と深く付き合う"
+      ],
+      "answer": 3,
+      "script": [
+        "よくみんな友達は多ければ多い方がいいと言いますよね。",
+        "僕は前からそのことに疑問を感じていました。",
+        "どうして友達がそんなにたくさん必要なのか分からないのです。",
+        "数は少なくても",
+        "お互いに心を開いて何でも話せるような付き合いにするのが",
+        "理想的なのではないでしょうか？",
+        "友達が多いと",
+        "一人一人としかっり向き合うことが難しくなると思います。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/59.mp3",
+      "question": "母親と娘が電話で話しています。娘は何を買って行きますか。",
+      "options": [
+        "AとC",
+        "AとD",
+        "AとDとE",
+        "CとDとE"
+      ],
+      "answer": 1,
+      "script": [
+        "お母さん、今スーパーだけど何か買っていくものある？",
+        "ああ、今日の夕飯の物はもうあるからいいわ。",
+        "あ、でも果物がないわね。",
+        "あなたの好きなもの買ってきてよ。",
+        "うん、じゃいちごがいいかな。",
+        "安売りしてるし。",
+        "そう、ああそれじゃ牛乳も買ってきて。",
+        "お父さんいちごに牛乳かけて食べるの好きだから。",
+        "わかった、あとは？",
+        "えーと、ジュースももうないわよ。",
+        "あなた、昨夜全部飲んじゃったでしょ。",
+        "うん、そうだね。",
+        "あ、でも牛乳とジュースは重いなあ。",
+        "それは今度にする。",
+        "それより、バターがもう少ししかないんじゃない？",
+        "今日安売りしてるよ。",
+        "ああ、それはお母さんが今日買ってきたわ。",
+        "ああ、本当。",
+        "じゃ、いいね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/60.mp3",
+      "question": "男のひと女の人が旅行の話をしています。二人はどの乗り物を使いますか。",
+      "options": [
+        "新幹線です",
+        "飛行機です",
+        "車です",
+        "高速バスです"
+      ],
+      "answer": 2,
+      "script": [
+        "そろそろ、旅行の計画を立てなくちゃ。",
+        "そうね、早くしないと東京からの切符が取れないわね。",
+        "広島までどうやって行く？",
+        "僕は車の運転得意だよ。",
+        "そうね、でも広島までだったら時間かかるでしょ。",
+        "私は飛行機でも新幹線でもいいわよ。",
+        "そうだけど、予算オーバーしちゃうよ。",
+        "お金足りないよ。",
+        "今回は時間あるんだからさ。",
+        "うーん、安く行くなら車だけど",
+        "あ、高速バスもあるわよ。",
+        "今回は時間があるんだからゆっくり行こうよ。",
+        "僕に任せてよ。",
+        "そうね。",
+        "じゃ、安全運転してね。"
+      ]
+    }
+  ],
+  "13": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/61.mp3",
+      "question": "学校で先生と女子学生が話しています。女子学生はこのあと最初に何をしますか。",
+      "options": [
+        "質問を考える",
+        "工場の歴史を調べる",
+        "工場に連絡する",
+        "先生と一緒に工場に行く"
+      ],
+      "answer": 2,
+      "script": [
+        "来週はいよいよ実習ですね。",
+        "みなさんもうインタビューに行くところは決まっていますよね？",
+        "Aグループはどこですか？",
+        "はい、私たちはビール工場に行く予定です。",
+        "工場の歴史についてもインターネットで調べました。",
+        "何を質問するか準備もできていますか？",
+        "はい、あともう少しかかりそうですが大丈夫です。",
+        "そうですか、実習の日はなんという人を訪問するんですか？",
+        "え？それって先生が決めて一緒に行って下さるんじゃ",
+        "え？違いますよ。",
+        "それも自分たちがやらないと。",
+        "ええ、、そうだったんですか。",
+        "じゃ、大急ぎで工場に連絡しなくては。",
+        "そうですね、まずはそれが一番ですね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/62.mp3",
+      "question": "男の人と女の人が話しています。男の人は今週中に何をしなけばなりませんか。",
+      "options": [
+        "シャツをクリーニングに出す",
+        "コンビニで飛行機代を払う",
+        "銀行でお金をおろす",
+        "旅行会社に行って飛行機代を払う"
+      ],
+      "answer": 1,
+      "script": [
+        "旅行の準備どれを先にやったらいいかな。",
+        "まずは着るもの、シャツをクリーニングに出して来なくちゃ。",
+        "そのあと銀行に寄って行こう。",
+        "あ、そうだ。",
+        "さっき旅行会社から電話があって",
+        "飛行機代の支払いはお済みでしょうか？",
+        "明日が支払いの期限ですって連絡があったわよ。",
+        "ああ、いけない。",
+        "すっかり忘れてた。",
+        "金曜日までに払わないといけないんだった。",
+        "コンビニで払っても結構ですって言ってたよ。",
+        "うーん、そしたら明日飛行機代はコンビニでお金をおろして払おう。",
+        "銀行とクリーニングは来週でもいいや、"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/63.mp3",
+      "question": "先生と学生が話しています。学生はこのあと何をしますか。",
+      "options": [
+        "学校に電話する",
+        "欠席届けを書く",
+        "しんだん書をもらいに行く",
+        "テストを受ける"
+      ],
+      "answer": 1,
+      "script": [
+        "あ、リイさん昨日はどうして休んだんですか？",
+        "すみません、お腹が痛くて病院に行っていたんです。",
+        "そうですか、もう大丈夫なんですか？",
+        "はい、それであの昨日のテストですけど",
+        "受けることはできますか？",
+        "病気だったのなら受けられますよ。",
+        "ああ、欠席届けを書いて出してくださいね。",
+        "それと、病院のしんだん書はありますか？",
+        "診断書ですか？",
+        "いえ、今日学校が終わったらもらいに行ってきます。",
+        "あの、欠席届けは？",
+        "事務所の入り口に欠席届けの紙がありますから",
+        "先にそれに書いて出してください。",
+        "それから、リイさん。",
+        "これから休むときには必ず学校に連絡してくださいね。",
+        "はい、すみませんでした。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/64.mp3",
+      "question": "学生と図書館の人が話しています。学生はこのあとどうしますか。",
+      "options": [
+        "図書館の本を返す",
+        "用紙に名前などを書く",
+        "レポートを書く",
+        "家に学生証を取りに行く"
+      ],
+      "answer": 1,
+      "script": [
+        "すみません、この本を借りたいんですけど。",
+        "はい、貸し出しですね。",
+        "では、、学生証を出してください。",
+        "あ、学生証ですね。",
+        "あれ、おかしいな",
+        "家に忘れてきちゃったのかな。",
+        "学生証がないと貸し出しできないことになっているんですが。",
+        "ええ、困ったなあ。",
+        "どうしよう、レポートを書くのに今日必要なんです。",
+        "仕方がないですね。",
+        "じゃ、この用紙に名前や学生番号連絡先などを記入してください。",
+        "今回はそれで特別に貸し出しできるようにします。",
+        "あ、ありがとうございます。",
+        "本を返すときに確認しますから",
+        "学生証を必ず持ってきてくださいね。",
+        "はい、わかりました。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/65.mp3",
+      "question": "コンビニでアルバイトの留学生と店長が話しています。留学生が来週休みたいのはどうしてですか。",
+      "options": [
+        "国に帰るから",
+        "試験があるから",
+        "両親があそびに来るから",
+        "友だちと旅行に行くから"
+      ],
+      "answer": 2,
+      "script": [
+        "店長",
+        "来週一週間、アルバイトを休ませていただきたいんですが。",
+        "ああ、確か試験があるって言ってたっけ？",
+        "いえ、試験は今月の終わりなのでそれはまだ",
+        "それに、３日ぐらいお休みをいただくだけで大丈夫だと思います。",
+        "まあ、無理をしなくていいよ。",
+        "勉強の方が大切だからね。",
+        "でもどうして？",
+        "友達と旅行にでも行くの？",
+        "旅行というか",
+        "実は国から両親が来るんです。",
+        "それで、一週間ほど色々なところへ連れて行こうと思いまして。",
+        "ああ、それはいいね。",
+        "きっと、ご両親も喜ぶよ。",
+        "ご両親とはどのくらい会ってないの？",
+        "日本に来てから一度も帰っていませんから",
+        "２年ぶりです。",
+        "そうか",
+        "じゃ、ご両親と楽しんで来なさい。"
+      ]
+    }
+  ],
+  "14": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/66.mp3",
+      "question": "夫婦が話しています。プレゼントは何にしますか。",
+      "options": [
+        "日本人形",
+        "食器",
+        "本",
+        "お金"
+      ],
+      "answer": 0,
+      "script": [
+        "お隣の田中さん、海外転勤が決まって来月みんなで引っ越すんだってね。",
+        "そうなのよ、それで何か差し上げようと思うんだけど。",
+        "何がいいと思う？",
+        "海外に持って行ってもらうなら日本的なものかな。",
+        "日本人形とかさ。",
+        "向こうの人に見せられるし。",
+        "ええ、もっと実用的な物の方がいいよ。",
+        "日本的なデザインの食器とか。",
+        "人形なんて海外にいる間はいいけど、日本に帰って来る時に困るんじゃない。",
+        "そうかな、食器なんてどこにもあるだろう。",
+        "じゃ、本でもあげたら？",
+        "でも、好みが分からないしね。",
+        "うーん、じゃお金にする？",
+        "田中さんが必要な物を買ってもらうってことで。",
+        "それはちょっと。",
+        "じゃ、いいわ。",
+        "あなたの言ったのにしよう。",
+        "帰って来るときには、向こうの友達にでもプレゼントしてもらえばいいし。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/67.mp3",
+      "question": "女の人はいつコピーしますか。",
+      "options": [
+        "朝早く",
+        "前の日の朝",
+        "前の日の午後",
+        "１週間前の午後"
+      ],
+      "answer": 2,
+      "script": [
+        "山本先生おはようございます。",
+        "お早いですね。",
+        "ええ、１時間目から授業があるんでね。",
+        "その前にコピーをしないと。",
+        "ああ、朝はコピーをする人がたくさんいるから時間がかかるでしょう。",
+        "そうなんですよ。午後からの授業だったら昼休みにできるんですけどね。",
+        "先生もそのために早くいらしているんですか？",
+        "いいえ、私はコピーは授業の当日にはしないようにしてるんです。",
+        "焦るのがいやなので。",
+        "その方がいいんですけどね。",
+        "私は週に一回しかこないから",
+        "前の週までに準備するのはなかなか。",
+        "そうですよね。",
+        "私は毎日来るから、前の日の空いている時間にできますけどね。",
+        "コピーは午後になるととても空いているんですよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/68.mp3",
+      "question": "父親と娘が話しています。娘はメガネをどこに置きましたか。",
+      "options": [
+        "台所",
+        "自分の部屋",
+        "テーブルの上",
+        "洗濯機の上"
+      ],
+      "answer": 1,
+      "script": [
+        "なんだ、何か探しものか？",
+        "うーん、メガネ。",
+        "いつもこのテーブルの上に置くようにしているんだけど。",
+        "お父さん知らない？",
+        "メガネ？",
+        "見なかったぞ。",
+        "落ちてるんじゃないか？",
+        "ないよ。",
+        "としかさっき父さんにコーヒーいれてくれてた時はかけてたぞ。",
+        "台所じゃないのか？",
+        "もう探した。",
+        "コーヒーいれた後はどうしたんだ？",
+        "うーん、台所で私もコーヒー飲んで",
+        "あ、そうだコーヒーこぼして服汚しちゃったんだ。",
+        "それで、洗濯しなきゃと思って２階の部屋に服を着替えに行って",
+        "その時メガネはずしたんだ。",
+        "じゃ、上にあるだろ。",
+        "見て来る。",
+        "あったあった、よかった。",
+        "メガネがないとテレビ見られないんだよね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/69.mp3",
+      "question": "男の人が旅行について話しています。男の人はどうして一人で旅行に行きたいのですか。",
+      "options": [
+        "好きな人と別れたから",
+        "自由に写真んをとりたいから",
+        "友だちといてもつまらないから",
+        "本をゆっくり読みたいから"
+      ],
+      "answer": 1,
+      "script": [
+        "友だちと旅行するののも楽しいのですが、",
+        "ぼくは旅行は一人で行くことが多いですね。",
+        "よく失恋でもしたのかなんて言われますけど",
+        "実はぼく写真を撮るのが好きなんですよ。",
+        "気に入った場所ががあるとずっとそこにいたい。",
+        "でも、友だちと一緒だとそうもいきません。",
+        "友だちは待ってる間、つまらないだろうし",
+        "ぼくもそんなことで気をつかうのは疲れます。",
+        "好きな本が１冊あれば別に寂しくないですよ。",
+        "かえってゆっくり本が読めます。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/70.mp3",
+      "question": "昼休みに会社の同僚が話しています。男の人はどうして休みの日にどこへも行かないのですか。",
+      "options": [
+        "体の調子がよくないからです",
+        "ゆっくり女の人と話したいからです",
+        "お金がないからです",
+        "休みたいからです。"
+      ],
+      "answer": 3,
+      "script": [
+        "今度の連休どこへ行くことにした？",
+        "どこにも行かないよ。",
+        "ええ？どこにも行かないって調子でも悪いの？",
+        "残念でした。",
+        "じゃ、どうして？",
+        "わかった、お金がないんだ。",
+        "ボーナスが入ったばかりだぜ。",
+        "たまにはゆっくりしようと思って。",
+        "どういう心境の変化？",
+        "うん、考えたんだもうヘトヘトに疲れているのにさ",
+        "ええ",
+        "なんで休みになるとどこかへ行かなくちゃならないのかってさ",
+        "うん、まあ電車も道路も混んでて大変だけどね。",
+        "うん、そうなんだよ。",
+        "で、家でゴロゴロするってこと？",
+        "ま、そういうこと。",
+        "お土産待ってるね。"
+      ]
+    }
+  ],
+  "15": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/71.mp3",
+      "question": "テレビで女の人が話しています。何について話していますか。",
+      "options": [
+        "相撲のルール",
+        "相撲の面白さ",
+        "相撲の勝ち方",
+        "相撲の歴史"
+      ],
+      "answer": 1,
+      "script": [
+        "今日は相撲をよく知らない人に相撲の魅力をお伝えしたいと思います。",
+        "まず、相撲はとてもわかりやすいスポーツです。",
+        "ルールは簡単。",
+        "どちらかが、倒れるか丸い土ひょうの外に出るかで勝ち負けが決まります。",
+        "その勝ち方にも色々な方法があって",
+        "どんな技を使って勝つかそれを見るのは楽しいものです。",
+        "でもなんと言っても一番面白いのは",
+        "体の小さな人が大きな人を投げ飛ばすところでしょうね。",
+        "相撲取りは太った体の大きな人が多いのですが",
+        "ただ体が大きいだけでは勝てないのです。",
+        "技術があれば体重が軽い人も大きい人を倒すことができるんです。",
+        "それに相撲というのは歴史のあるスポーツですから",
+        "相撲を通してさまざさな日本の文化を学ぶこともできますよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/72.mp3",
+      "question": "女の人が話しています。犬に服を着せることについて女の人はどう思っていますか。",
+      "options": [
+        "人が満足しているだけだからよくない",
+        "犬が動きづらくなるからやめた方がいい",
+        "寒さに弱い種類の犬のためにはいい",
+        "犬が可愛くなるからどんどんするといい"
+      ],
+      "answer": 2,
+      "script": [
+        "最近、服を着ている犬をよく見かけますが",
+        "皆さんはどう思いますか？",
+        "あれは犬を飼っている人が楽しいだけで",
+        "犬は迷惑をしているとか",
+        "動物は自然のままにいるのがいいとかいう意見もよく聞かれます。",
+        "確かに服を着せすぎると動きにくくなるのでよくないのかもしれません。",
+        "ですが、犬の中には寒さに弱い種類もいるのです。",
+        "そういう犬にとっては服を着ることは",
+        "むしろいいことだと私は思います。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/73.mp3",
+      "question": "テレビで女の人が話しています。女の人は何について話していますか。",
+      "options": [
+        "人間が太る原因",
+        "食べることを我慢する方法",
+        "食べすぎてします理由",
+        "食べ過ぎない方法"
+      ],
+      "answer": 3,
+      "script": [
+        "食べ過ぎが体に悪いことは皆さんもご存知ですね。",
+        "ですが、食べたいという気持ちを我慢するのは難しいものです。",
+        "太る原因になるとわかっていても",
+        "ついつい食べすぎてしまったという経験がある方も多いのではないでしょうか？",
+        "そういう方はぜひよくかんで食べる習慣をつるようにしてください。",
+        "そうですね、３０回くらいはかむといいでしょう。",
+        "そうするとお腹がいっぱいになったと感じ",
+        "食べすぎることがなくなるんです。",
+        "食べるのを我慢しよとするとストレスになりますが",
+        "これなら簡単ですよね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/74.mp3",
+      "question": "病院の受付で男の人が話しています。男の人はこの後どうしますか。",
+      "options": [
+        "用紙に名前や住所などを書く",
+        "名前が呼ばれるまで待つ",
+        "診察室で詳しく説明する",
+        "３番の窓口に用紙を持っていく"
+      ],
+      "answer": 3,
+      "script": [
+        "あの、初めてなんですけど。",
+        "ではまず、こちらの用紙にお名前住所ケガの具合などをご記入ください。",
+        "それから、あちらの３番の窓口に用紙と保険証を出してお待ちください。",
+        "お名前が呼ばれたら窓口に行ってください。",
+        "あ、その用紙ならもう書きました。",
+        "これだけでいいんでしょうか？",
+        "あ、はい。",
+        "結構です。",
+        "あとは診察の時、詳しくお聞きしますから。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/75.mp3",
+      "question": "夫婦がパーティーの準備をしています。男の人が次にすることはなんですか。",
+      "options": [
+        "テーブルにグラスをならべる",
+        "テーブルに花を飾る",
+        "花屋へ花を買いに行く",
+        "テーブルをきれいにふく"
+      ],
+      "answer": 2,
+      "script": [
+        "掃除終わったよ。",
+        "あと、何をすればいい？",
+        "えーと、じゃテーブルにグラスをならべて。",
+        "あ、まだテーブルふいてなかった。",
+        "ああ、わかった。",
+        "じゃそれは、ぼくがするよ。",
+        "お願い。",
+        "ああ、そうだ。",
+        "テーブルに花を飾りたいのよ。",
+        "花屋さんは早めに行かないときれいな花が",
+        "なくなっちゃうからすぐ行かなきゃ。",
+        "花屋って駅の向こうの？",
+        "車で行ったほうがいいよね？",
+        "そうね、でも私そろそろ料理を始めないと。",
+        "あなた、お願い。",
+        "わかった。"
+      ]
+    }
+  ],
+  "16": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/76.mp3",
+      "question": "電話で男の子とお母さんが話しています。男の子はこれからどうしますか。",
+      "options": [
+        "管理人さんのところへ行く",
+        "おばあちゃんの家に行く",
+        "お父さんに電話する",
+        "おばあちゃんを待つ"
+      ],
+      "answer": 3,
+      "script": [
+        "もしもし、お母さんぼくだけど",
+        "あのね、かぎを忘れちゃってうちに入れないんだ。",
+        "ええ？お母さんはまだしばらく帰れないわよ。",
+        "管理人さんにお願いして鍵あけてもらって。",
+        "管理人さんは４時までしかいないんじゃなかった？",
+        "ええ？ああ、もう４時半ね。",
+        "困ったわね。",
+        "じゃ、お父さんに電話してみる。",
+        "でも、お父さんの会社から家まで",
+        "２時間ぐらいかかるんだから",
+        "今すぐ帰れたとしても２時間は待たなきゃならないわよ。",
+        "じゃ、おばあちゃんのうちに行ってなさい。",
+        "おばあちゃんのうち？",
+        "うん、わかった。",
+        "じゃ、お母さんが電話しておくから",
+        "おばあちゃんが迎えに来るまでそこにいなさい。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/77.mp3",
+      "question": "男の人と女の人が話しています。男の人は何を注文しますか。",
+      "options": [
+        "AとD",
+        "AとE",
+        "AとF",
+        "BとC"
+      ],
+      "answer": 0,
+      "script": [
+        "何にする？",
+        "ぼくはコーヒー。",
+        "私は紅茶にする。",
+        "あ、そうだ",
+        "こないだ１０００円分のチケットもらったんだ。",
+        "ほら、これ。",
+        "１０００円までならタダで食べたり飲んだりできるんだ。",
+        "これ使おうよ？",
+        "ほんと？",
+        "じゃ、私ケーキ頼んでもいい？",
+        "いいよ。",
+        "じゃ、ぼくもデザート頼んじゃおうかな。",
+        "ぼくはこっちにするよ。",
+        "あ、でもそれだと１０００円以上になっちゃうね。",
+        "いいよ、３００円くらいだろ。",
+        "ぼくが払うよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/78.mp3",
+      "question": "夫婦が話しています。どうすることにしましたか。",
+      "options": [
+        "夫婦が別々の卒業式に行く",
+        "どちらの卒業式にも行かない",
+        "母親がイチロウの卒業式だけに行く",
+        "子どもたちと相談してから決める"
+      ],
+      "answer": 2,
+      "script": [
+        "ねえ、ヨシコとイチロウの卒業式だけど",
+        "ああ、高校と中学同じ日だったんだよな。",
+        "いつだっけ？",
+        "３月17日よ。",
+        "金曜日。",
+        "ねえ、会社休んでどちらかに行ってくれない？",
+        "それが",
+        "その日はどうしても出なきゃいけない会議があって無理なんだよ。",
+        "でも私一人じゃ両方にはいけないわよ。",
+        "うーん、じゃヨシコの方はいいんじゃないか。",
+        "おれも高校の卒業式に親は来なかったし。",
+        "ちゃんと話せばヨシコもわかってくれるさ。",
+        "そう",
+        "まあ、そうするしかないわね。",
+        "じゃ、ヨシコに話してみるわ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/79.mp3",
+      "question": "銀行の機械の前で男の人が銀行員と話しています。男の人はこれからどうしますか。",
+      "options": [
+        "家に帰る",
+        "銀行の窓口へ行く",
+        "もう一度、機械を使う",
+        "違う機械で下ろす"
+      ],
+      "answer": 0,
+      "script": [
+        "あの、すみません。",
+        "お金が下ろせないんですけど。",
+        "はい",
+        "いくらお引き出しですか？",
+        "１００万円なんですけど。",
+        "お客様、申し訳ございません。",
+        "機械では５０万円までのお引き出ししかできないんです。",
+        "ええ？",
+        "そうなんですか？",
+        "じゃ、２回に分けて下ろせばいいんですね。",
+        "いえ、1日のお引き出しの合計が５０万円ということなんです。",
+        "じゃ、違う機械ならいいんですか？",
+        "いえ、５０万円以上のお引き出しは",
+        "窓口でお願いしております。",
+        "今日は通帳とはんこうをお持ちですか？",
+        "いや、持ってきてないです。",
+        "家にありますよ。",
+        "困ったなあ、今日中にどうしても必要なんだ。",
+        "申し訳ございません。",
+        "はあー",
+        "じゃすぐとってきますよ。",
+        "窓口は三時までですからお急ぎください。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/80.mp3",
+      "question": "男の人と女の人が話しています。二人は何時に会いますか。",
+      "options": [
+        "9時40分",
+        "2時40分",
+        "2時50分",
+        "まだ決めていない"
+      ],
+      "answer": 3,
+      "script": [
+        "映画は朝一番が",
+        "10時から12時２０分までで",
+        "次の回は3時から5時２０分までなんだけど",
+        "どっちがいい？",
+        "午後にして映画見た後に食事でもしようよ。",
+        "いいよ、そうしよ。",
+        "それでね、映画館はサクラ駅ってところから10分くらいらしいんだけど",
+        "駅で20分前に待ち合わせる？",
+        "いいけど、サクラ駅って何線？",
+        "地下鉄？",
+        "そう、横浜から出てる地下鉄だって。",
+        "じゃ、横浜にしようよ。",
+        "どうせ二人とも横浜を通るんだし。",
+        "うん、そうだね。",
+        "横浜からサクラ駅までどのくらいかかるか調べてあとでメールするね。",
+        "うん、頼むね。"
+      ]
+    }
+  ],
+  "17": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/81.mp3",
+      "question": "男の人と女の人が話しています。女の人はどうして事故にあいましたか。",
+      "options": [
+        "女人が、音楽を聴きながら歩いていたから",
+        "女の人が、電話で話しながら自転車に乗っていたから",
+        "相手が、かさをさして自転車に乗っていたから",
+        "相手が、電話をかけながら自転車に乗っていたから"
+      ],
+      "answer": 3,
+      "script": [
+        "どうしたのそのケガ？",
+        "ちょっと交通事故。",
+        "て言っても相手は自転車だけど。",
+        "だから、音楽を聴きながら歩いてたら危ないって言ったじゃないか。",
+        "そう言われてからはしないようにしてるよ。",
+        "このケガは私のせいじゃないもん。",
+        "悪いのは向こう。",
+        "携帯電話をかけてたんだもん。",
+        "ああ、そうなんか。",
+        "最近、危ない乗り方している人多いよね。",
+        "ぼくもこの間、かさをさして走っている自転車にぶつかりそうになったよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/82.mp3",
+      "question": "女子学生と男子学生が話しています。男子学生はどうしてレポートを書きますか。",
+      "options": [
+        "試験が悪かったから",
+        "宿題を忘れていたから",
+        "出席が足りないから",
+        "カラオケに行きたくないから"
+      ],
+      "answer": 2,
+      "script": [
+        "中村くん",
+        "試験も終わったしみんなでカラオケに行こうって言ってるんだけど",
+        "一緒に行かない？",
+        "ああ、ぼくはやめておくよ。",
+        "レポート書かなきゃならないんだ。",
+        "レポート？",
+        "そんな宿題あったっけ？",
+        "あ、先週のレポートまだ出してないの？",
+        "いや、先生が言っていたじゃない",
+        "単位がもらえるかどうか心配な人はもう一つレポート出せって。",
+        "ああ、あれね。",
+        "中村くん試験できなかったの？",
+        "いやあ、まあまあできていたと思うんだけど",
+        "ぼく出席がさ。",
+        "そういえばよく休んでいたよね。",
+        "そっか、じゃみんなには中村くんは行かないって伝えておくね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/83.mp3",
+      "question": "女の人と男の人が話しています。女の人は読みおわった本をどうしていますか。",
+      "options": [
+        "捨てられないから、古本屋に売っている",
+        "お金が欲しいから、古本屋に売っている",
+        "お金が欲しいから、図書館に持っていく",
+        "多くの人に読んで欲しいから、図書館に持っていく"
+      ],
+      "answer": 3,
+      "script": [
+        "ねえ、読み終わった本ってどうしてる？",
+        "本？",
+        "ぼくは、古本屋に売ってるよ。",
+        "ああ、そう。",
+        "本ってどんどんて溜まっちゃうけど捨てられないのよね。",
+        "私は図書館に持っていってるんだ。",
+        "うちの近くの図書館は"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/84.mp3",
+      "question": "会社で男の人と女の人が話しています。女の人はどうして早く家に帰りたいのですか。",
+      "options": [
+        "犬を病院に連れて行きたいから",
+        "体の調子が悪くて、病院に行くから",
+        "両親のことが心配だから",
+        "両親が旅行から帰ってこないから"
+      ],
+      "answer": 0,
+      "script": [
+        "仕事終わったんでしょ",
+        "これからみんなで飲みに行くんだけど",
+        "くらたさんも一緒にどう？",
+        "ああ、今日はちょっと。",
+        "何か予定でもあるの？",
+        "いえ、予定というか早く家に帰らないと。",
+        "まだ6時だよ",
+        "少しぐらいいいでしょ、行こうよ。",
+        "ええ、行きたいんですけど。",
+        "じつは今朝うちの犬が元気なかったんですよ。",
+        "それでちょっと心配なんです。",
+        "そうなんだ",
+        "でもくらたさん",
+        "ご両親と一緒に住んでいるんでしょ？",
+        "ご両親が面倒を見てくれるんじゃないの？",
+        "ええ、いつもはそうなんですけど",
+        "今、両親が旅行中なんです。",
+        "だから早く帰って病院に連れて行こうかなあって思って。",
+        "そうなんだ。",
+        "それは心配だね。",
+        "また今度誘ってください。",
+        "すみません。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/85.mp3",
+      "question": "母親と息子が冷蔵庫について話しています。母親はどうして新しい冷蔵庫が買いたいのですか？",
+      "options": [
+        "今の冷蔵庫が壊れてしまったから",
+        "今の冷蔵庫は大きすぎるから",
+        "今の冷蔵庫は電気代がかかりすぎるから",
+        "今の冷蔵庫は冷凍庫が小さすぎるから"
+      ],
+      "answer": 3,
+      "script": [
+        "電気屋の広告色々見てみたんだけど",
+        "最近の冷蔵庫って電気代があまりかからないのね。",
+        "ああ、そういうのが売れているみたいだね。",
+        "なに？冷蔵庫買うの？",
+        "壊れた？",
+        "そういうわけじゃないんだけど",
+        "あなたたちが家を出てお父さんと二人だけでしょ。",
+        "だからねえ",
+        "大きすぎるってこと？",
+        "それで新しいの買うのはもったいないよ。",
+        "それに母さん、いろんなもの買っておくから大きい方がいいと思うけどね。",
+        "そうじゃないのよ。",
+        "二人だと、料理を作っても余って仕方がないのよ。",
+        "だから、冷凍しておくことが多いんだけど",
+        "今の冷蔵庫だとちょっとね。",
+        "ああ、そういうことか。",
+        "じゃ、冷凍庫が大きいタイプのがいいね。"
+      ]
+    }
+  ],
+  "18": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/86.mp3",
+      "question": "会社で男の人と女の人が話しています。昨日が大変な日になったのはどうしてですか。",
+      "options": [
+        "留守の間に泥棒に入られたから",
+        "女の人が鍵をとってしまったから",
+        "家の鍵をなくしてしまったから",
+        "家族に家に入れてもらえなかったから"
+      ],
+      "answer": 2,
+      "script": [
+        "疲れた顔をしていますけど、何かあったんですか？",
+        "ええ、昨日は大変だったんですよ。",
+        "鍵を無くしちゃったみたいで、家に入ることができなかったんです。",
+        "昨日は家族も留守だったので。",
+        "それで、どうしようかと思っていたら",
+        "２階の窓が空いていることに気づいて。",
+        "そこで、庭の木に登って窓から入ろうと思ったんですよ。",
+        "２階からですか？",
+        "ええ。",
+        "ところがね、それを見ていた人に泥棒と間違がわれて",
+        "警察を呼ばれてしまったんです。",
+        "警察には色々聞かれるし、近所の人には変な目で見られるし",
+        "家族には怒られるし",
+        "それは大変でしたねえ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/87.mp3",
+      "question": "テレビで男の人が話しています。男の人は何について話していますか。",
+      "options": [
+        "相手チームの悪いところ",
+        "データを集めることの難しさ",
+        "試合に勝った理由",
+        "毎日の練習の厳しさ"
+      ],
+      "answer": 2,
+      "script": [
+        "この試合に勝つことができて嬉しいです。",
+        "頑張ってくれた選手たちには本当に感謝しています。",
+        "相手チームがこの暑さで思うように動けなかったところもありますが",
+        "やっぱりうちの練習の方法がよかったんじゃないでしょうか。",
+        "相手チームのデータを集めて",
+        "そのデータにもとづいて色々練習を重ねてきたんです。",
+        "もともとうまい選手がそろっているんですが",
+        "毎日の練習が選手たちの力を",
+        "十分にひきだすことになったんだと思います。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/88.mp3",
+      "question": "男の人と女の人が話しています。男の人が言いたいことはどんなことですか。",
+      "options": [
+        "子供が悪いことをしたら親はしかるべきだ",
+        "子供が悪いことをしたらたたくべきだ",
+        "何が悪いことか知らない母親が多すぎる",
+        "レストランでは楽しくおしゃべりするべきだ"
+      ],
+      "answer": 0,
+      "script": [
+        "日本のお母さんは子供をしかりませんよね。",
+        "そんなことありませんよ。",
+        "私は子供の時よくしかられましたよ。",
+        "たたかれたこともあります。",
+        "え？たたくのはちょっと。",
+        "でも、この間レストランへ行った時",
+        "子供たちがすごくうるさかったんです。",
+        "店の中を走り回ったりして",
+        "でも、お母さんたちは何も注意をしないでおしゃべりをしていましたよ。",
+        "ああ、そういうお母さんたちのことは問題になっているんですよ。",
+        "子供には何が悪いことかしかっり教えなければね。",
+        "そうですよね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/89.mp3",
+      "question": "会社で男の人と女の人がメモを見ながら話しています。男の人は何を注文しますか。",
+      "options": [
+        "ア　イ　ウ",
+        "ア　ウ　エ",
+        "ア　ウ　オ",
+        "ア　エ　オ"
+      ],
+      "answer": 1,
+      "script": [
+        "必要な文房具、書き出してみたんですけど",
+        "見てもらえますか？",
+        "うん。",
+        "えーと、のりとボールペン",
+        "あ、ボールペンはいいわ。",
+        "もう私の方で注文して今日届くことになっているから。",
+        "はい。",
+        "それから、ノートと封筒",
+        "あれ？封筒はまだけっこう残っていたようだけど？",
+        "まだあるんですが",
+        "今日の午後大量に使うので",
+        "注文しといた方がいいと思ったんですけど。",
+        "じゃ、必要ね。",
+        "それから、コピー用紙はね毎月届けてもらっているから",
+        "注文しなくていいのよ。",
+        "はい。",
+        "じゃ、これで注文よろしくね。",
+        "はい、わかりました。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/90.mp3",
+      "question": "女の人と母親が話しています。女の人は友達に何をプレゼントしますか。",
+      "options": [
+        "赤ちゃんの服",
+        "赤ちゃんのおもちゃ",
+        "友達の服",
+        "友達のバッグ"
+      ],
+      "answer": 3,
+      "script": [
+        "お母さん、友達に赤ちゃんが生まれたんだけど",
+        "お祝い何がいいと思う？",
+        "そうね",
+        "よく送るのは着るものとかおもちゃだけどね。",
+        "そうだよね。",
+        "私も服がいいなって思うんだけど",
+        "ただみんな赤ちゃんの服やおもちゃをあげるでしょ",
+        "だから友達に使ってもらえる物をあげるのもいいんじゃない？",
+        "え？服とか？",
+        "服もいいけど、赤ちゃんが産まれると",
+        "着替えとかタオルとか色々持ち歩く物が多くなるでしょ。",
+        "だから、たくさん入るバッグなんかどう？",
+        "あなたが産まれた時、もらって嬉しかったわ。",
+        "そっか、じゃ私もそうしよ。"
+      ]
+    }
+  ],
+  "19": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/91.mp3",
+      "question": "友達から留守番電話にメッセージが入っていました。このメッセージを聞いた後まず何をしますか。",
+      "options": [
+        "友達に連絡する",
+        "レストランを予約する",
+        "旅行の計画を立てる",
+        "飛行機を予約する"
+      ],
+      "answer": 0,
+      "script": [
+        "もしもし、まさこです。",
+        "急なんだけど明日の夜ご飯一緒にどう？",
+        "駅の近くに美味しいお店を見つけたからそこで。",
+        "そのお店けっこう混むから予約したいし",
+        "来られるかどうかまるべく早く教えてくれる？",
+        "できたからご飯食べながら",
+        "今度一緒に行く旅行の計画たてない？",
+        "飛行機の予約は早い方がいいしね。",
+        "じゃね。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/92.mp3",
+      "question": "母親と息子が話しています。息子はこの後まず何をしますか。",
+      "options": [
+        "映画を見る",
+        "荷物を出す",
+        "本屋に行く",
+        "ご飯を食べる"
+      ],
+      "answer": 1,
+      "script": [
+        "あ、太郎",
+        "今から出かけるの？",
+        "うん、駅前の映画館で友達と映画見てくる。",
+        "あ、そう。",
+        "それなら駅前の郵便局に寄ってこの荷物出してってくれない？",
+        "ええ？ちょっと本屋に寄ろうと思ってたのにな。",
+        "まあ、映画の後にするか。",
+        "じゃ、出して来てあげるよ。",
+        "ありがとう。",
+        "急ぎだから映画の前に行ってね。",
+        "はい、お金。",
+        "え？こんなにかかるの？",
+        "あまった分はご飯代にでも使いなさい。",
+        "やった！"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/93.mp3",
+      "question": "うちの玄関で男の留学生とホストファミリーのお母さんが話しています。留学生はこれから何をしますか。",
+      "options": [
+        "傘を用意する",
+        "リビングのエアコンを消す",
+        "台所の電気を消す",
+        "台所の窓を閉める"
+      ],
+      "answer": 1,
+      "script": [
+        "雨降りそうですね。",
+        "傘持ってた方がいいですか？",
+        "今日は天気がよくなるって言ってたから大丈夫よ。",
+        "はい。",
+        "あれ？リビングのエアコンは消したよね？",
+        "ええ、消してありました。",
+        "ああ、そう。",
+        "あいけない、台所の電気つけたままだった。",
+        "ごめんね、ちょっと消してきてくれる？",
+        "はい",
+        "台所の小さい窓は空いてるけど閉めなくていいわよ。",
+        "わかりました。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/94.mp3",
+      "question": "会社で男の人と女の人が話しています。女の人はこれからまず何をしますか。",
+      "options": [
+        "アンケートをとる",
+        "行く場所を探す",
+        "何をするか決める",
+        "食事する店を決める"
+      ],
+      "answer": 1,
+      "script": [
+        "鈴木さん",
+        "今年の新入社員歓迎会のことなんだけどね。",
+        "今年は週末に日帰りでどこかに行くのはどうだろう？",
+        "日帰り旅行ですか？",
+        "いいかもしれませんね。",
+        "じゃ、今年はそういうことで準備してくれる？",
+        "まずはどこへ行きたいかみんなに聞いてみて。",
+        "そうですね。",
+        "アンケートでもとりましょうか？",
+        "あ、いや",
+        "やっぱりそんな時間もないし",
+        "鈴木さんが良さそうな場所を決めてください。",
+        "インターネットとかで探してくれる？",
+        "はい。",
+        "で、そこで何をするかだな。",
+        "食事しただけで終わるのはちょっとな",
+        "そうですね。",
+        "ま、それは場所が決まってから考えよう。",
+        "調べたら教えてくれる？",
+        "わかりました。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/95.mp3",
+      "question": "会社で女の人と男の人が話しています。二人はいつ相談しますか。",
+      "options": [
+        "来週の月曜日",
+        "来週の火曜日",
+        "来週の水曜日",
+        "来週の木曜日"
+      ],
+      "answer": 2,
+      "script": [
+        "あの、新しい商品について相談したいんですが",
+        "いつにしましょうか？",
+        "ああ、そうですね",
+        "今日が金曜日でしょ",
+        "今日はもうあまり時間がないから",
+        "じゃ、来週の月曜日はどうですか？",
+        "ああ、来週の月曜日と火曜日は出張なんです。",
+        "木曜日なら時間取れますけど",
+        "そう、木曜日は私がちょっと忙しいんで",
+        "あの、出張から帰った次の日は忙しいですか？",
+        "うーん",
+        "あはい、大丈夫です。",
+        "じゃ、その日にしましょう。",
+        "午後時間空けておきます。"
+      ]
+    }
+  ],
+  "20": [
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/96.mp3",
+      "question": "女の人と男の人が料理教室について話しています。女の人はどうしてこの教室に興味を持ちましたか。",
+      "options": [
+        "いろんな国の料理が作れるから",
+        "平日に教室があるから",
+        "一人で作れるから",
+        "料金が安いから"
+      ],
+      "answer": 0,
+      "script": [
+        "佐藤さん",
+        "料理教室に行っているそうですね。",
+        "楽しいですか？",
+        "ええ、いろんな国の料理を作るんですよ。",
+        "へえー、面白そう。",
+        "私日本料理は習ったことがあるので",
+        "他の国の料理を作ってみたいと思っていたんです。",
+        "あの、その教室はいつやっているんですか？",
+        "月に一回最初の土曜日の午後です。",
+        "先生の話を聞いた後",
+        "小さなグループに別れて料理を作ります。",
+        "そうですか。",
+        "料金はちょと高いんですが",
+        "人気があるんですよ。",
+        "あの、よかったら連絡先を教えましょうか？",
+        "ああ、ありがとうございます。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/97.mp3",
+      "question": "女の学生と男の学生が話しています。男の学生はどうしてアルバイトを変えましたか。",
+      "options": [
+        "朝早い仕事だったから",
+        "時給が安かったから",
+        "物を作る仕事がしたかったから",
+        "ほかの仕事も経験したかったから"
+      ],
+      "answer": 3,
+      "script": [
+        "今からアルバイト？",
+        "うん",
+        "じつは今日からコンビニでアルバイトすることにしたんだ。",
+        "え？自動車工場のアルバイトは？",
+        "朝早くからだったし大変だったの？",
+        "いや、早起きは平気なんだ。",
+        "それに時給もまあまあよかったし",
+        "じゃ、なんで？",
+        "うん、物を作る仕事も楽しかったけど",
+        "学生のうちに色々な仕事をやってみたくてね。",
+        "そっか、頑張って！"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/98.mp3",
+      "question": "図書館で男の学生と係の人が話しています。図書館のパソコンコーナーで何をしてはいけませんか。",
+      "options": [
+        "インターネットを使うこと",
+        "メールをすること",
+        "プリンターを使うこと",
+        "DVDを見ること"
+      ],
+      "answer": 1,
+      "script": [
+        "すいません、パソコンを使いたいんでsが。",
+        "はい、どうぞ。",
+        "あの、インターネットは使えますか？",
+        "ええ、利用できます。",
+        "でも、メールはご遠慮ください。",
+        "わかりました",
+        "後、プリンターは？",
+        "ああ、プリンターはお使いになれますが有料です。",
+        "あ、そうですか",
+        "それから、DVDは見られますか？",
+        "はい、大丈夫ですよ。"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/99.mp3",
+      "question": "大学で男の留学生が係の人にホームステイについて聞いています。男の留学生はどうしてホームステイに参加できませんか。",
+      "options": [
+        "申し込みのしめきりがすぎたから",
+        "２回目の参加だから",
+        "一ヶ月後に帰国するから",
+        "来日して半年以上になるから"
+      ],
+      "answer": 3,
+      "script": [
+        "すみません",
+        "このホームステイに申し込みをしたいんですが",
+        "しめきりまだですよね？",
+        "はい、まだ間に合いますよ。",
+        "参加は初めてですか？",
+        "いえ、２回目です。",
+        "２回目でも大丈夫ですか？",
+        "はい、大丈夫です。",
+        "ええ、日本に来てどれぐらいになりますか？",
+        "１０ヶ月を過ぎたところです。",
+        "あと、１ヶ月で帰国する予定です。",
+        "そうですか",
+        "うーん、じつはこのホームステイは",
+        "来日してから半年以内の留学生しか",
+        "申し込みができないことになっているんですよ。",
+        "え？そうなんですか？"
+      ]
+    },
+    {
+      "audio": "https://tiengnhat360.xyz/thu_luyenthi/luyen-nghe-css-2/N3/data/nghehieu/100.mp3",
+      "question": "テレビで男の人が自分の仕事について話しています。男の人は何が嬉しいと言っていますか。",
+      "options": [
+        "新しい店で働けること",
+        "車を使って仕事ができること",
+        "商品がたくさん売れること",
+        "村の人が喜んでくれること"
+      ],
+      "answer": 3,
+      "script": [
+        "私は新しく街にできたスーパーの社員です。",
+        "でも、店の中では働いていません。",
+        "毎日車でしんせんな肉や魚など",
+        "店の商品を遠くの村まで売りに行っています。",
+        "1日に５つぐらいの村に行きます。",
+        "お客さんは多い日も少ない日もありますが",
+        "私の車が来るのを楽しみに待っていてくださいます。",
+        "みなさんに喜んでもらえるのが",
+        "やっぱり私には一番嬉しいです。"
+      ]
+    }
+  ]
+};
+
+const LESSON_IDS = Object.keys(LESSONS).map(Number).sort((a,b)=>a-b);
+let current = LESSON_IDS[0];
+
+const state = {};
+LESSON_IDS.forEach(id => {
+  const len = LESSONS[id].length;
+  state[id] = { selected: Array(len).fill(null), graded: false, showScript: Array(len).fill(false) };
+});
+
+const navRoot = document.getElementById('lessonNav');
+const root = document.getElementById('quizRoot');
+
+function renderNav(){
+  navRoot.innerHTML = LESSON_IDS.map(id => {
+    let cls = id === current ? 'current' : '';
+    if(state[id].graded) cls += ' done';
+    return `<button class="${cls}" data-lesson="${id}">${id}</button>`;
+  }).join('');
+  navRoot.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      current = +btn.dataset.lesson;
+      document.getElementById('scoreBanner').classList.remove('show');
+      document.getElementById('submitBtn').disabled = state[current].graded;
+      renderNav();
+      renderQuiz();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+}
+
+function renderQuiz(){
+  const DATA = LESSONS[current];
+  const st = state[current];
+  document.getElementById('progressLabel').textContent = `Bài ${current}`;
+
+  root.innerHTML = DATA.map((q, qi) => {
+    const opts = q.options.map((text, oi) => {
+      const isSel = st.selected[qi] === oi;
+      let cls = 'opt' + (isSel ? ' sel' : '');
+      if(st.graded){
+        if(oi === q.answer) cls += ' is-correct';
+        else if(isSel) cls += ' is-wrong';
+      }
+      return `<div class="${cls}" data-qi="${qi}" data-oi="${oi}" role="radio" aria-checked="${isSel}" tabindex="0">
+        <span class="bub">${oi+1}</span><span class="jp">${text}</span>
+      </div>`;
+    }).join('');
+
+    let cardCls = 'qcard';
+    let stamp = '';
+    if(st.graded){
+      const correct = st.selected[qi] === q.answer;
+      cardCls += correct ? ' graded correct' : ' graded wrong';
+      stamp = `<div class="stamp"><span class="mk">${correct ? '✓' : '✗'}</span>${correct ? 'Chính xác' : 'Chưa đúng — đáp án đúng là số ' + (q.answer+1)}</div>`;
+    }
+
+    const img = q.image ? `<img class="qimg" src="${q.image}" alt="Hình minh họa câu ${qi+1}">` : '';
+    const scriptHtml = st.showScript[qi]
+      ? `<div class="script-box show">${q.script.map(l => `<p>${l}</p>`).join('')}</div>`
+      : `<div class="script-box"></div>`;
+
+    return `<div class="${cardCls}" id="card-${qi}">
+      <div class="qhead"><span class="qnum">${qi+1}</span><span class="qtitle">Câu ${qi+1} / 5</span></div>
+      <audio controls preload="none" src="${q.audio}"></audio>
+      ${img}
+      <div class="qtext jp">${q.question}</div>
+      <div class="options">${opts}</div>
+      ${stamp}
+      <button class="btn sm" style="margin-top:10px" data-toggle-script="${qi}">${st.showScript[qi] ? 'Ẩn hội thoại' : 'Hiện hội thoại'}</button>
+      ${scriptHtml}
+    </div>`;
+  }).join('');
+
+  root.querySelectorAll('.opt').forEach(el => {
+    el.addEventListener('click', () => {
+      if(st.graded) return;
+      const qi = +el.dataset.qi, oi = +el.dataset.oi;
+      st.selected[qi] = oi;
+      renderQuiz();
+      updateProgress();
+    });
+    el.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); el.click(); }
+    });
+  });
+
+  root.querySelectorAll('[data-toggle-script]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const qi = +btn.dataset.toggleScript;
+      st.showScript[qi] = !st.showScript[qi];
+      renderQuiz();
+    });
+  });
+}
+
+function updateProgress(){
+  const st = state[current];
+  const done = st.selected.filter(v => v !== null).length;
+  const total = LESSONS[current].length;
+  document.getElementById('progressText').textContent = `${done}/${total} câu`;
+  document.getElementById('progressFill').style.width = `${(done/total)*100}%`;
+}
+
+function grade(){
+  const DATA = LESSONS[current];
+  const st = state[current];
+  st.graded = true;
+  renderQuiz();
+  renderNav();
+  const correctCount = DATA.reduce((acc, q, qi) => acc + (st.selected[qi] === q.answer ? 1 : 0), 0);
+  const banner = document.getElementById('scoreBanner');
+  banner.classList.add('show');
+  document.getElementById('scoreBig').innerHTML = `${correctCount}<small>/${DATA.length}</small>`;
+  document.getElementById('scoreNote').textContent =
+    correctCount === DATA.length ? 'Xuất sắc! Bạn nghe đúng hết 5 câu.' :
+    correctCount >= 3 ? 'Khá tốt, nghe lại các câu sai để rút kinh nghiệm.' :
+    'Nên nghe lại kỹ hơn từng đoạn hội thoại và thử lại.';
+  document.getElementById('submitBtn').disabled = true;
+  window.scrollTo({ top: banner.offsetTop - 90, behavior: 'smooth' });
+}
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+  const st = state[current];
+  if(st.selected.includes(null)){
+    if(!confirm('Bạn chưa chọn hết các câu. Vẫn nộp bài?')) return;
+  }
+  grade();
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  const len = LESSONS[current].length;
+  state[current] = { selected: Array(len).fill(null), graded: false, showScript: Array(len).fill(false) };
+  document.getElementById('scoreBanner').classList.remove('show');
+  document.getElementById('submitBtn').disabled = false;
+  renderNav();
+  renderQuiz();
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+renderNav();
+renderQuiz();
+updateProgress();
+</script>
+</body>
+</html>
