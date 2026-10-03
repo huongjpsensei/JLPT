@@ -512,7 +512,7 @@ document.getElementById("admin-add-btn").addEventListener("click", async () => {
 const REQUIRE_APPROVAL = false;
 
 async function initAccess(){
-  if(!REQUIRE_APPROVAL){ showView("app"); return; }
+  if(!REQUIRE_APPROVAL){ document.querySelector(".top-account").style.display = "none"; showView("app"); return; }
   showView("gate");
   const session = loadSession();
   if(session && session.email){
