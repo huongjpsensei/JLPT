@@ -508,7 +508,11 @@ document.getElementById("admin-add-btn").addEventListener("click", async () => {
   finally { btn.disabled = false; input.disabled = false; }
 });
 
+// Đặt true để bật lại bước duyệt truy cập bằng email.
+const REQUIRE_APPROVAL = false;
+
 async function initAccess(){
+  if(!REQUIRE_APPROVAL){ showView("app"); return; }
   showView("gate");
   const session = loadSession();
   if(session && session.email){
